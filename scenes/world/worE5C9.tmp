@@ -21,10 +21,10 @@ shape = SubResource("BoxShape3D_qj8l2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19209e-07, 0)
 mesh = SubResource("BoxMesh_xkqdt")
 
+[node name="Player" parent="." instance=ExtResource("1_ufhqg")]
+script = ExtResource("2_0t6hs")
+
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.82394, 0)
 omni_range = 103.519
 omni_attenuation = 0.1
-
-[node name="Player" parent="." instance=ExtResource("1_ufhqg")]
-script = ExtResource("2_0t6hs")
