@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ct3t8hhq1ecn5" path="res://scenes/player/player.tscn" id="1_ufhqg"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="2_0t6hs"]
-[ext_resource type="PackedScene" uid="uid://snwfs4y00q7s" path="res://scenes/plot/plot.tscn" id="3_yxi78"]
+[ext_resource type="PackedScene" uid="uid://b3gaha3iwm8m3" path="res://scenes/plot/plot.tscn" id="3_yxi78"]
 [ext_resource type="Texture2D" uid="uid://ea2thuya2oai" path="res://assets/hdri_skybox.exr" id="4_62gb8"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_a1hca"]
@@ -52,3 +52,4 @@ transform = Transform3D(0.999997, 0.00215667, -0.000826935, -0.00215616, 0.99999
 script = ExtResource("2_0t6hs")
 
 [node name="Plot" parent="." instance=ExtResource("3_yxi78")]
+visible = false

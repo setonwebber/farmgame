@@ -1,19 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://snwfs4y00q7s"]
+[gd_scene load_steps=3 format=3 uid="uid://b3gaha3iwm8m3"]
 
-[ext_resource type="MeshLibrary" uid="uid://cmx5nag85knjx" path="res://assets/meshlibrary/plot.tres" id="1_hb43r"]
+[ext_resource type="MeshLibrary" uid="uid://cwg0tb53dp058" path="res://assets/meshlibraries/plot/plot.tres" id="1_vf8fs"]
+[ext_resource type="Script" path="res://scenes/plot/grid_map.gd" id="2_brujx"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kxo7c"]
-albedo_color = Color(0.533333, 1, 0.541176, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_ocdta"]
-material = SubResource("StandardMaterial3D_kxo7c")
-size = Vector2(32, 32)
-
-[node name="Plot" type="Node"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_ocdta")
-skeleton = NodePath("../..")
+[node name="Plot" type="Node3D"]
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("1_hb43r")
+mesh_library = ExtResource("1_vf8fs")
+cell_size = Vector3(1, 1, 1)
+script = ExtResource("2_brujx")

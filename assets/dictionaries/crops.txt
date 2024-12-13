@@ -1,0 +1,8 @@
+[
+	{
+		"cropName": "Carrot",
+		"cropType": "Fruit",
+		"growSpeed": 4,
+		"growYield": 1,
+	}
+]
