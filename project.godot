@@ -11,5 +11,33 @@ config_version=5
 [application]
 
 config/name="farmgame"
+run/main_scene="res://scenes/world/world.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[input]
+
+move_left={
+"deadzone": 0.5,
+"events": []
+}
+move_right={
+"deadzone": 0.5,
+"events": []
+}
+move_forward={
+"deadzone": 0.5,
+"events": []
+}
+move_backward={
+"deadzone": 0.5,
+"events": []
+}
+look_left={
+"deadzone": 0.5,
+"events": []
+}
+look_right={
+"deadzone": 0.5,
+"events": []
+}
