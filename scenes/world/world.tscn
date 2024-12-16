@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://bgav67kkgvf2p"]
+[gd_scene load_steps=9 format=3 uid="uid://bgav67kkgvf2p"]
 
 [ext_resource type="PackedScene" uid="uid://ct3t8hhq1ecn5" path="res://scenes/player/player.tscn" id="1_ufhqg"]
-[ext_resource type="Script" path="res://scenes/player/player.gd" id="2_0t6hs"]
 [ext_resource type="PackedScene" uid="uid://b3gaha3iwm8m3" path="res://scenes/plot/plot.tscn" id="3_yxi78"]
 [ext_resource type="Texture2D" uid="uid://ea2thuya2oai" path="res://assets/hdri_skybox.exr" id="4_62gb8"]
 
@@ -48,8 +47,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0068022, 0)
 mesh = SubResource("BoxMesh_xkqdt")
 
 [node name="Player" parent="." instance=ExtResource("1_ufhqg")]
-transform = Transform3D(0.999997, 0.00215667, -0.000826935, -0.00215616, 0.999997, 0.000619203, 0.000828269, -0.000617417, 0.999999, 0, 0.5, 0)
-script = ExtResource("2_0t6hs")
 
 [node name="Plot" parent="." instance=ExtResource("3_yxi78")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.2383, 0, 0)
