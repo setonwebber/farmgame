@@ -3,8 +3,9 @@ extends CharacterBody3D
 @export var SPEED: float = 5.0
 @export var JUMP_VELOCITY: float = 4.5
 
+@onready var camera_pivot: Node3D = $"../CameraPivot"
+
 func _physics_process(delta: float) -> void:
-	var camera_pivot: Node3D = $CameraPivot
 	var input_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction: Vector3 = (camera_pivot.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
@@ -17,7 +18,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 	
 	# Sprinting
-	if Input.is_action_just_pressed("sprint") and is_on_floor():
+	if Input.is_action_just_pressed("sprint"):
 		SPEED *= 2
 	elif Input.is_action_just_released("sprint"):
 		SPEED /= 2

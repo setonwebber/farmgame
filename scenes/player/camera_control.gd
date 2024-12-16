@@ -4,6 +4,8 @@ var mouse_sensitivity: float = 0.1
 var yaw: float = 0
 var pitch: float = 0
 
+@onready var player = $"../CharacterBody3D"
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
@@ -16,6 +18,8 @@ func _input(event: InputEvent):
 		
 		rotation_degrees = Vector3(pitch, yaw, 0)
 
-func _process(delta: float):
+func _process(_delta: float):
+	position = player.position
+	
 	if Input.is_action_just_released("freeaim"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

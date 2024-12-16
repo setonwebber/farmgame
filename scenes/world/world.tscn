@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://bgav67kkgvf2p"]
+[gd_scene load_steps=9 format=3 uid="uid://bgav67kkgvf2p"]
 
-[ext_resource type="PackedScene" uid="uid://ct3t8hhq1ecn5" path="res://scenes/player/player.tscn" id="1_ufhqg"]
-[ext_resource type="Script" path="res://scenes/player/player.gd" id="2_0t6hs"]
+[ext_resource type="PackedScene" uid="uid://cqe3bliijkea7" path="res://scenes/player/player.tscn" id="1_ufhqg"]
 [ext_resource type="PackedScene" uid="uid://b3gaha3iwm8m3" path="res://scenes/plot/plot.tscn" id="3_yxi78"]
 [ext_resource type="Texture2D" uid="uid://ea2thuya2oai" path="res://assets/hdri_skybox.exr" id="4_62gb8"]
 
@@ -20,6 +19,8 @@ reflected_light_source = 2
 ssr_enabled = true
 ssao_enabled = true
 ssil_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_read_sky_light = false
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qj8l2"]
 size = Vector3(50, 0.1, 50)
@@ -29,16 +30,16 @@ size = Vector3(50, 0.1, 50)
 
 [node name="World" type="Node"]
 
-[node name="DirectionalLightSun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.90256, 0.00921468, -0.430467, -0.207444, 0.866778, 0.453502, 0.377298, 0.49861, -0.780407, 0, 1.96199, 0)
-light_color = Color(0.85098, 0.831373, 0.0941176, 1)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_color = Color(1, 0.876667, 0.63, 1)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_67sig")
 
 [node name="Floor" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("BoxShape3D_qj8l2")
@@ -47,9 +48,7 @@ shape = SubResource("BoxShape3D_qj8l2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0068022, 0)
 mesh = SubResource("BoxMesh_xkqdt")
 
-[node name="Player" parent="." instance=ExtResource("1_ufhqg")]
-transform = Transform3D(0.999997, 0.00215667, -0.000826935, -0.00215616, 0.999997, 0.000619203, 0.000828269, -0.000617417, 0.999999, 0, 0.5, 0)
-script = ExtResource("2_0t6hs")
-
 [node name="Plot" parent="." instance=ExtResource("3_yxi78")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.2383, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 10)
+
+[node name="Player" parent="." instance=ExtResource("1_ufhqg")]
