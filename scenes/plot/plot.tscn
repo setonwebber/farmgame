@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3gaha3iwm8m3"]
+[gd_scene load_steps=4 format=3 uid="uid://b3gaha3iwm8m3"]
 
+[ext_resource type="Script" path="res://scenes/plot/plot.gd" id="1_op3vv"]
 [ext_resource type="MeshLibrary" uid="uid://cwg0tb53dp058" path="res://assets/meshlibraries/plot/plot.tres" id="1_vf8fs"]
 [ext_resource type="Script" path="res://scenes/plot/grid_map.gd" id="2_brujx"]
 
 [node name="Plot" type="Node3D"]
+script = ExtResource("1_op3vv")
 
 [node name="GridMap" type="GridMap" parent="."]
+visible = false
 mesh_library = ExtResource("1_vf8fs")
 cell_size = Vector3(1, 1, 1)
 script = ExtResource("2_brujx")
