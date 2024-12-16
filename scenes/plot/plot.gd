@@ -3,7 +3,7 @@ extends Node3D
 # @export var OWNER
 @onready var emptyPlot: PackedScene = preload("res://scenes/plot/tiles/empty_plot.tscn")
 var emptyPlotBuffer: Node
-var PLOTSIZE: int = 32
+var PLOTSIZE: int = 16
 
 var plotArray: Array
 var plotArrayRow: Array
