@@ -21,3 +21,16 @@ func _process(delta: float):
 	global_position = character.global_position
 	if Input.is_action_just_pressed("disable_mouse"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+	if Input.is_action_just_released("zoom_out"):
+		scale = Vector3(
+			max(0.1, min(scale.x + 0.1, 5)),
+			max(0.1, min(scale.y + 0.1, 5)),
+			max(0.1, min(scale.z + 0.1, 5))
+		)
+	elif Input.is_action_just_released("zoom_in"):
+		scale = Vector3(
+			max(0.5, min(scale.x - 0.1, 5)),
+			max(0.5, min(scale.y - 0.1, 5)),
+			max(0.5, min(scale.z - 0.1, 5))
+		)

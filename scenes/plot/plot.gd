@@ -32,16 +32,15 @@ func _process(_delta: float) -> void:
 		print(get_tile_from_position(get_cursor_world_position()))
 
 func get_tile_from_position(pos: Vector3):
-	
+	# take the origin point of the plot by the position clicked, this gives us the relative position of the click towards this chunk
 	var plotPosX: int = floor(pos.x - position.x)
 	var plotPosZ: int = floor(pos.z - position.z)
-	print(floor(plotPosX), floor(plotPosZ))
 	
 	# if the plotpos x or z is in the range of 0 and plotsize - 1 (31)
 	if plotPosX <= PLOTSIZE - 1 and plotPosX >= 0 and plotPosZ <= PLOTSIZE - 1 and plotPosZ >= 0:
 		return plotArray[floor(plotPosX)][floor(plotPosZ)]
-	
-	
+
+
 func get_cursor_world_position() -> Vector3:
 	# stole this from the internet, it just gets the world position of where the cursor is when called.
 	const RAY_DISTANCE = 64.0

@@ -6,7 +6,6 @@ extends CharacterBody3D
 @onready var camera_pivot: Node3D = $"../CameraPivot"
 
 func _physics_process(delta: float) -> void:
-	var camera_pivot: Node3D = $"../CameraPivot"
 	var input_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction: Vector3 = (camera_pivot.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	var prev_direction: Vector3
