@@ -1,0 +1,6 @@
+[
+	{
+		"buildingName": "Harvester",
+		"buildingTier": 1
+	}
+]

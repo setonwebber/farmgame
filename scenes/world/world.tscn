@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bgav67kkgvf2p"]
+[gd_scene load_steps=11 format=3 uid="uid://bgav67kkgvf2p"]
 
 [ext_resource type="PackedScene" uid="uid://cqe3bliijkea7" path="res://scenes/player/player.tscn" id="1_ufhqg"]
+[ext_resource type="Shader" uid="uid://p37mi27aq35g" path="res://assets/textures/shaders/floor_seamless.tres" id="2_il4ab"]
 [ext_resource type="PackedScene" uid="uid://b3gaha3iwm8m3" path="res://scenes/plot/plot.tscn" id="3_yxi78"]
 [ext_resource type="Texture2D" uid="uid://ea2thuya2oai" path="res://assets/hdri_skybox.exr" id="4_62gb8"]
 
@@ -25,7 +26,12 @@ sdfgi_read_sky_light = false
 [sub_resource type="BoxShape3D" id="BoxShape3D_qj8l2"]
 size = Vector3(50, 0.1, 50)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8gclk"]
+render_priority = 0
+shader = ExtResource("2_il4ab")
+
 [sub_resource type="BoxMesh" id="BoxMesh_xkqdt"]
+material = SubResource("ShaderMaterial_8gclk")
 size = Vector3(50, 0.1, 50)
 
 [node name="World" type="Node"]

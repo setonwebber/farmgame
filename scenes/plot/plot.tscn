@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3gaha3iwm8m3"]
+[gd_scene load_steps=3 format=3 uid="uid://b3gaha3iwm8m3"]
 
 [ext_resource type="Script" path="res://scenes/plot/plot.gd" id="1_op3vv"]
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_sd35t"]
+size = Vector2(16, 16)
+center_offset = Vector3(8, 0, 8)
+
 [node name="Plot" type="Node3D"]
 script = ExtResource("1_op3vv")
+
+[node name="plotFloor" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_sd35t")

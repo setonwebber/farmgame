@@ -15,11 +15,11 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity + get_gravity() * delta
 
 	# Jumping
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump"):
 		velocity.y = JUMP_VELOCITY
 	
 	# Sprinting
-	if Input.is_action_just_pressed("sprint") and is_on_floor():
+	if Input.is_action_just_pressed("sprint"):
 		SPEED = SPEED * 2
 	elif Input.is_action_just_released("sprint"):
 		SPEED = SPEED / 2
