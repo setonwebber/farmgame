@@ -3,6 +3,8 @@ extends CharacterBody3D
 @export var SPEED: float = 5.0
 @export var JUMP_VELOCITY: float = 4.5
 
+@onready var camera_pivot: Node3D = $"../CameraPivot"
+
 func _physics_process(delta: float) -> void:
 	var camera_pivot: Node3D = $"../CameraPivot"
 	var input_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")

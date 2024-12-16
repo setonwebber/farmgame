@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqe3bliijkea7"]
+
+[ext_resource type="Script" path="res://scenes/player/camera_control.gd" id="1_aj8fv"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_skwb6"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_xvdrh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ncitn"]
+radius = 0.3
+height = 1.0
+
+[node name="Player" type="Node3D"]
+
+[node name="CameraPivot" type="Node3D" parent="."]
+script = ExtResource("1_aj8fv")
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 1, 2)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+script = ExtResource("1_skwb6")
+SPEED = null
+JUMP_VELOCITY = null
+
+[node name="Model" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("PrismMesh_xvdrh")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_ncitn")

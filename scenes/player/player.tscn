@@ -3,7 +3,9 @@
 [ext_resource type="Script" path="res://scenes/player/character.gd" id="1_axymt"]
 [ext_resource type="Script" path="res://scenes/player/camera.gd" id="2_vf7u8"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1f403"]
+[sub_resource type="PrismMesh" id="PrismMesh_xvdrh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ncitn"]
 radius = 0.3
 height = 1.0
 
