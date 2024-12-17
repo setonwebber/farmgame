@@ -35,6 +35,8 @@ script = ExtResource("4_i3l7a")
 [node name="HotbarComponent" type="Node" parent="."]
 script = ExtResource("5_w8vre")
 
+[node name="ResourceComponent" type="Node" parent="."]
+
 [node name="Character" type="Node3D" parent="."]
 
 [node name="Physics" type="CharacterBody3D" parent="Character"]

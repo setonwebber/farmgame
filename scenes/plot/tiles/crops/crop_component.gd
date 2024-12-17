@@ -25,7 +25,6 @@ func _ready() -> void:
 	cropModel.scale = Vector3.ZERO
 	$Timer.start()
 
-
 func _process(delta: float) -> void:
 	if growPercentage >= 100:
 		growPercentage = 100
@@ -36,14 +35,13 @@ func _process(delta: float) -> void:
 			$Timer.start()
 		grown = false
 
-
 func _on_timer_timeout():
 	if not grown:
 		growPercentage = growPercentage + growSpeed
 		cropModel.scale = Vector3(
-			clamp(growPercentage * growthSize / 100, 0.01, 2), 
-			clamp(growPercentage * growthSize / 100, 0.01, 20), 
-			clamp(growPercentage * growthSize / 100, 0.01, 2))
+			clamp(growPercentage * growthSize / 100, 0.1, 2), 
+			clamp(growPercentage * growthSize / 100, 0.1, 20), 
+			clamp(growPercentage * growthSize / 100, 0.1, 2))
 
 func set_crop_tier(rarity):
 	if rarity >= 0 and rarity < 50:

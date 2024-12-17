@@ -1,4 +1,5 @@
 extends Node
+class_name CropComponent
 
 # References
 @onready var parent_player: CharacterBody3D = $"../Character/Physics"
@@ -70,6 +71,27 @@ func place_crop():
 		tile["node"].add_child(crop_instance)
 		SignalBridge.emit_signal("preview_plot_update", tile)
 
+func harvest_crop():
+	if not current_plot or not Global.BUILDING_MODE:
+		return
+	
+	var tile = current_plot.get_tile_from_position(parent_player.global_transform.origin + parent_player.global_transform.basis.z)
+	if not tile and not tile["isOccupied"]:
+		return
+	
+	var crop_instance = tile["placed_building"]
+	var cropComponent_instance = crop_instance.get_child(0).get_child(0)
+	if cropComponent_instance.growPercentage == 100:
+		print(cropComponent_instance.growYield, cropComponent_instance.growSpeed)
+
+		# Update tile properties
+		tile["isOccupied"] = false
+		tile["tileType"] = "Empty"
+		tile["placed_building"] = null
+
+		crop_instance.queue_free()
+		SignalBridge.emit_signal("preview_plot_update", tile)
+
 func _on_body_entered_plot(player_node, plot):
 	if player_node == parent_player:
 		current_plot = plot
@@ -81,3 +103,5 @@ func _on_body_left_plot(player_node):
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("building_place"):
 		place_crop()
+	elif event.is_action_released("building_remove"):
+		harvest_crop()
