@@ -24,7 +24,8 @@ func _ready() -> void:
 			var emptyPlotDictionary: Dictionary = {
 				"tileType": "empty",
 				"isOccupied": false,
-				"node": emptyPlotBuffer
+				"node": emptyPlotBuffer,
+				"placed_building": null
 			}
 			
 			plotArrayRow.append(emptyPlotDictionary)

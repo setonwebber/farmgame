@@ -1,7 +1,7 @@
 [
 	{
 		"cropName": "Carrot",
-		"cropType": "Fruit",
+		"tileType": "Crop",
 		"cropScene": "res://scenes/plot/tiles/crops/carrot.tscn",
 		"growSpeed": 4,
 		"growYield": 1

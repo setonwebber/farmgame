@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 	update_preview_building()
 
 func update_preview_building():
-	if not current_plot or not hotbar_component.BUILDING_MODE:
+	if not current_plot or not Global.BUILDING_MODE:
 		cleanup_preview()
 		return
 
@@ -35,6 +35,7 @@ func update_preview_building():
 		if new_tile != previous_tile:
 			remove_preview_from_tile(previous_tile)
 			add_preview_to_tile(new_tile)
+			SignalBridge.emit_signal("preview_plot_update", new_tile)
 			previous_tile = new_tile
 	else:
 		cleanup_preview()
@@ -52,10 +53,8 @@ func remove_preview_from_tile(tile: Dictionary):
 		tile["node"].remove_child(preview_building)
 
 func place_crop():
-	if not current_plot or not hotbar_component.BUILDING_MODE:
+	if not current_plot or not Global.BUILDING_MODE:
 		return
-	
-	print(parent_player.basis)
 	
 	var tile = current_plot.get_tile_from_position(parent_player.global_transform.origin + parent_player.global_transform.basis.z)
 	if tile and tile["isOccupied"] == false:
@@ -64,10 +63,12 @@ func place_crop():
 
 		# Update tile properties
 		tile["isOccupied"] = true
-		tile["tileType"] = "Carrot"
+		tile["tileType"] = "crop"
+		tile["placed_building"] = crop_instance
 
 		# Add crop to the tile node
 		tile["node"].add_child(crop_instance)
+		SignalBridge.emit_signal("preview_plot_update", tile)
 
 func _on_body_entered_plot(player_node, plot):
 	if player_node == parent_player:

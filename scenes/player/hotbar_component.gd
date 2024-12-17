@@ -1,7 +1,6 @@
 extends Node
 
 # this will control the building/crop that will be placed when the action is clicked, and what buildings are in the hotbar. the hotbarlist will be changed with the inventory when i get to it
-var BUILDING_MODE: bool
 var SELECTED_BUILDING: PackedScene
 
 var hotbarList: Array
@@ -20,35 +19,39 @@ func _input(event: InputEvent):
 		if hotbarInputBuffer != "hotbar_1":
 			SELECTED_BUILDING = load(hotbarList[0])
 			hotbarInputBuffer = "hotbar_1"
-			BUILDING_MODE = true
+			Global.BUILDING_MODE = true
 		else:
 			hotbarInputBuffer = " "
-			BUILDING_MODE = false
+			Global.BUILDING_MODE = false
 	elif event.is_action_released("hotbar_2"):
 		if hotbarInputBuffer != "hotbar_2":
 			SELECTED_BUILDING = load(hotbarList[1])
 			hotbarInputBuffer = "hotbar_2"
+			Global.BUILDING_MODE = true
 		else:
 			hotbarInputBuffer = " "
-			BUILDING_MODE = false
+			Global.BUILDING_MODE = false
 	elif event.is_action_released("hotbar_3"):
 		if hotbarInputBuffer != "hotbar_3":
 			SELECTED_BUILDING = load(hotbarList[2])
 			hotbarInputBuffer = "hotbar_3"
+			Global.BUILDING_MODE = true
 		else:
 			hotbarInputBuffer = " "
-			BUILDING_MODE = false
+			Global.BUILDING_MODE = false
 	elif event.is_action_released("hotbar_4"):
 		if hotbarInputBuffer != "hotbar_4":
 			SELECTED_BUILDING = load(hotbarList[3])
 			hotbarInputBuffer = "hotbar_4"
+			Global.BUILDING_MODE = true
 		else:
 			hotbarInputBuffer = " "
-			BUILDING_MODE = false
+			Global.BUILDING_MODE = false
 	elif event.is_action_released("hotbar_5"):
 		if hotbarInputBuffer != "hotbar_5":
 			SELECTED_BUILDING = load(hotbarList[4])
 			hotbarInputBuffer = "hotbar_5"
+			Global.BUILDING_MODE = true
 		else:
 			hotbarInputBuffer = " "
-			BUILDING_MODE = false
+			Global.BUILDING_MODE = false
