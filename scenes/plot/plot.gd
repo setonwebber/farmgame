@@ -35,10 +35,6 @@ func _ready() -> void:
 	
 	emptyPlotBuffer = null
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_released("building_place"):
-		print(get_tile_from_position(Functions.get_cursor_world_position()))
-
 func get_tile_from_position(pos: Vector3):
 	# take the origin point of the plot by the position clicked, this gives us the relative position of the click towards this chunk
 	var plotPosX: int = floor(pos.x - position.x)
