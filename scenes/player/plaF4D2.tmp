@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqe3bliijkea7"]
+
+[ext_resource type="Script" path="res://scenes/player/camera.gd" id="1_lrus2"]
+[ext_resource type="Script" path="res://scenes/player/character.gd" id="2_hhrv2"]
+[ext_resource type="PackedScene" uid="uid://do7uwyxvt4lqw" path="res://assets/models/untitled.glb" id="3_vo6or"]
+[ext_resource type="Script" path="res://scenes/player/buildingComponent.gd" id="4_i3l7a"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_bdg7o"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 357.01
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ncitn"]
+radius = 0.3
+height = 1.0
+
+[node name="Player" type="Node3D"]
+
+[node name="CameraPivot" type="Node3D" parent="."]
+script = ExtResource("1_lrus2")
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 1, 2)
+attributes = SubResource("CameraAttributesPractical_bdg7o")
+fov = 66.6952
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+script = ExtResource("2_hhrv2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_ncitn")
+
+[node name="untitled" parent="CharacterBody3D" instance=ExtResource("3_vo6or")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, -0.49, 0)
+
+[node name="BuildingComponent" type="Node" parent="."]
+script = ExtResource("4_i3l7a")
