@@ -11,7 +11,9 @@ var rotation_speed: float = 15
 
 func _physics_process(delta: float) -> void:
 	input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-	direction = (camera_pivot.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	direction = (camera_pivot.basis * Vector3(input_dir.x, 0, input_dir.y))
+	direction.y = 0
+	direction = direction.normalized()
 	
 	# Gravity calculations
 	if not is_on_floor():
@@ -35,5 +37,5 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
-		
+	
 	move_and_slide()
