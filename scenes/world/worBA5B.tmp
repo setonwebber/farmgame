@@ -24,11 +24,9 @@ ssao_enabled = true
 sdfgi_use_occlusion = true
 sdfgi_read_sky_light = false
 fog_light_color = Color(1, 1, 1, 1)
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.055
+volumetric_fog_density = 0.794
 volumetric_fog_emission_energy = 0.0
 volumetric_fog_gi_inject = 0.0
-volumetric_fog_sky_affect = 0.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qj8l2"]
 size = Vector3(50, 0.1, 50)
@@ -47,6 +45,7 @@ subdivide_depth = 50
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_color = Color(1, 0.876667, 0.63, 1)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -67,5 +66,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 10)
 
 [node name="Player" parent="." instance=ExtResource("1_ufhqg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.113985, 0.0210146, 0.274932)
-
-[node name="Player2" parent="." instance=ExtResource("1_ufhqg")]

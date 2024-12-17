@@ -1,13 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3gaha3iwm8m3"]
+[gd_scene load_steps=5 format=3 uid="uid://b3gaha3iwm8m3"]
 
 [ext_resource type="Script" path="res://scenes/plot/plot.gd" id="1_op3vv"]
+[ext_resource type="Script" path="res://scenes/plot/plotarea.gd" id="2_6p5nf"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_sd35t"]
 size = Vector2(16, 16)
 center_offset = Vector3(8, 0, 8)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_5bxf4"]
+size = Vector3(16, 2, 16)
+
 [node name="Plot" type="Node3D"]
 script = ExtResource("1_op3vv")
 
-[node name="plotFloor" type="MeshInstance3D" parent="."]
+[node name="PlotFloor" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_sd35t")
+
+[node name="PlotArea3D" type="Area3D" parent="."]
+script = ExtResource("2_6p5nf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlotArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, 8)
+shape = SubResource("BoxShape3D_5bxf4")

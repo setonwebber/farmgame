@@ -6,7 +6,7 @@
 default_input_values = [0, Vector3(0, 0, 0), 1, 0.39, 2, Vector3(0, 0, 90)]
 
 [sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_teu1i"]
-constant = 10.0
+constant = 15.0
 
 [sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_3odph"]
 function = 1
@@ -64,13 +64,13 @@ input_name = "uv"
 function = 1
 
 [sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_t0w7k"]
-constant = 50.0
+constant = 100.0
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_tbb03"]
 input_name = "uv"
 
 [sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_ds0n3"]
-constant = 25.0
+constant = 50.0
 
 [sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_yeejd"]
 function = 1
@@ -93,7 +93,7 @@ void fragment() {
 
 
 // FloatConstant:5
-	float n_out5p0 = 50.000000;
+	float n_out5p0 = 100.000000;
 
 
 // UVFunc:4
@@ -110,7 +110,7 @@ void fragment() {
 
 
 // FloatConstant:7
-	float n_out7p0 = 25.000000;
+	float n_out7p0 = 50.000000;
 
 
 // UVFunc:8
@@ -144,7 +144,7 @@ void fragment() {
 
 
 // FloatConstant:11
-	float n_out11p0 = 10.000000;
+	float n_out11p0 = 15.000000;
 
 
 // UVFunc:12
@@ -195,7 +195,7 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-881.531, 87.445)
+graph_offset = Vector2(-1202.85, 628.598)
 nodes/fragment/0/position = Vector2(1480, 200)
 nodes/fragment/3/node = SubResource("VisualShaderNodeInput_40gpp")
 nodes/fragment/3/position = Vector2(-820, 280)
