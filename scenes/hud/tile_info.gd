@@ -22,3 +22,5 @@ func _preview_plot_update(tile):
 		text = text + "Grow Yield: " + str(cropNode.growYield) + "\n"
 		text = text + "Grow Percentage: " + str(cropNode.growPercentage) + "\n"
 		text = text + "Crop Tier: " + str(cropNode.cropTier) + "\n"
+	else:
+		text = " "
