@@ -1,7 +1,7 @@
 extends Node
 
 # References
-@onready var parent_player: CharacterBody3D = $"../CharacterBody3D"
+@onready var parent_player: CharacterBody3D = $"../Character/Physics"
 @onready var hotbar_component: Node = $"../HotbarComponent"
 
 # Preview building instance
@@ -19,7 +19,7 @@ func _ready() -> void:
 	SignalBridge.connect("body_entered_plot", _on_body_entered_plot)
 	SignalBridge.connect("body_left_plot", _on_body_left_plot)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	update_preview_building()
 
 func update_preview_building():

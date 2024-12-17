@@ -18,7 +18,6 @@ height = 1.0
 [node name="Player" type="Node3D"]
 
 [node name="CameraPivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("1_lrus2")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot"]
@@ -27,7 +26,7 @@ margin = 0.5
 [node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 attributes = SubResource("CameraAttributesPractical_bdg7o")
-fov = 80.1168
+fov = 110.0
 
 [node name="BuildingComponent" type="Node" parent="."]
 script = ExtResource("4_i3l7a")
@@ -41,7 +40,6 @@ script = ExtResource("5_w8vre")
 script = ExtResource("4_aukpo")
 
 [node name="CollisionBox" type="CollisionShape3D" parent="Character/Physics"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.369012, 0)
 shape = SubResource("CapsuleShape3D_ncitn")
 
 [node name="Model" parent="Character" instance=ExtResource("3_vo6or")]
