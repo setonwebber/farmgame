@@ -1,8 +1,8 @@
 extends Area3D
 
 @onready var plot: Node = $".."
-var players: Array
-var playersBuffer: Array
+var players: Array[Node3D]
+var playersBuffer: Array[player]
 
 func _process(delta: float) -> void:
 	if has_overlapping_bodies():
