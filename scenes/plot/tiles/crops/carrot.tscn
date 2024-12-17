@@ -23,18 +23,20 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[node name="Carrot" type="MeshInstance3D"]
+[node name="Node3D" type="Node3D"]
+
+[node name="Carrot" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.0461503, 0)
 mesh = SubResource("ArrayMesh_w5c14")
 skeleton = NodePath("")
 
-[node name="CropComponent" type="Node" parent="."]
+[node name="CropComponent" type="Node" parent="Carrot"]
 script = ExtResource("1_inuoa")
-growSpeed = 10
+growSpeed = 1.0
 growYield = 10
 cropName = "Carrot"
 
-[node name="Timer" type="Timer" parent="CropComponent"]
+[node name="Timer" type="Timer" parent="Carrot/CropComponent"]
 autostart = true
 
-[connection signal="timeout" from="CropComponent/Timer" to="CropComponent" method="_on_timer_timeout"]
+[connection signal="timeout" from="Carrot/CropComponent/Timer" to="Carrot/CropComponent" method="_on_timer_timeout"]

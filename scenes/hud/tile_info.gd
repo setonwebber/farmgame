@@ -11,12 +11,13 @@ func _process(delta: float) -> void:
 	if Global.BUILDING_MODE:
 		visible = true
 		if tileDictionary and tileDictionary["tileType"] == "crop":
-			cropNode = tileDictionary["placed_building"].get_child(0)
+			cropNode = tileDictionary["placed_building"].get_child(0).get_child(0)
 			text = "Crop Name: " + str(cropNode.cropName) + "\n"
 			text = text + "Grow Speed: " + str(cropNode.growSpeed) + "\n"
 			text = text + "Grow Yield: " + str(cropNode.growYield) + "\n"
 			text = text + "Grow Percentage: " + str(cropNode.growPercentage) + "\n"
 			text = text + "Crop Tier: " + str(cropNode.cropTier) + "\n"
+			text = text + "Growth Size: " + str(cropNode.growthSize) + "\n"
 		else:
 			text = " "
 	else:

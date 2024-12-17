@@ -41,7 +41,7 @@ script = ExtResource("5_w8vre")
 script = ExtResource("4_aukpo")
 
 [node name="CollisionBox" type="CollisionShape3D" parent="Character/Physics"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.369012, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.489904, 0)
 shape = SubResource("CapsuleShape3D_ncitn")
 
 [node name="Model" parent="Character" instance=ExtResource("3_vo6or")]
