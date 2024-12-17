@@ -4,6 +4,7 @@ class_name crop
 #growspeed is crops per minute
 @export var growSpeed: int
 @export var growYield: int
+@export var cropName: String
 
 var growPerSecond: float
 var growPercentage: float

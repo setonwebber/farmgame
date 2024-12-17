@@ -32,6 +32,7 @@ skeleton = NodePath("")
 script = ExtResource("1_inuoa")
 growSpeed = 10
 growYield = 10
+cropName = "Carrot"
 
 [node name="Timer" type="Timer" parent="CropComponent"]
 autostart = true
