@@ -1,9 +1,10 @@
 [gd_scene load_steps=3 format=4 uid="uid://bs2pyalmsosnn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y04ms"]
+transparency = 1
 albedo_color = Color(1, 0.483333, 0, 1)
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_irsn8"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_w5c14"]
 resource_name = "carrot_Cylinder"
 _surfaces = [{
 "aabb": AABB(-1.02563, -2.32806, -1.02563, 2.05125, 4.23416, 2.05125),
@@ -20,9 +21,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[node name="Carrot" type="Node3D"]
-
-[node name="carrot" type="MeshInstance3D" parent="."]
+[node name="carrot" type="MeshInstance3D"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.0461503, 0)
-mesh = SubResource("ArrayMesh_irsn8")
+mesh = SubResource("ArrayMesh_w5c14")
 skeleton = NodePath("")

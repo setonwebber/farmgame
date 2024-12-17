@@ -63,7 +63,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00358391, 0.0068022, 0)
 mesh = SubResource("BoxMesh_xkqdt")
 
 [node name="Plot" parent="." instance=ExtResource("3_yxi78")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 8)
 
 [node name="Player" parent="." instance=ExtResource("1_ufhqg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.113985, 0.0210146, 0.274932)
