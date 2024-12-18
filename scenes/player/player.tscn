@@ -2,14 +2,11 @@
 
 [ext_resource type="Script" path="res://scenes/player/character/camera.gd" id="1_lrus2"]
 [ext_resource type="PackedScene" uid="uid://do7uwyxvt4lqw" path="res://assets/models/untitled.glb" id="3_vo6or"]
+[ext_resource type="Script" path="res://scenes/player/components/resource_component.gd" id="4_4h7i3"]
 [ext_resource type="Script" path="res://scenes/player/character/physics.gd" id="4_aukpo"]
-[ext_resource type="Script" path="res://scenes/player/building_component.gd" id="4_i3l7a"]
-[ext_resource type="Script" path="res://scenes/player/hotbar_component.gd" id="5_w8vre"]
+[ext_resource type="Script" path="res://scenes/player/components/building_component.gd" id="4_i3l7a"]
+[ext_resource type="Script" path="res://scenes/player/components/hotbar_component.gd" id="5_w8vre"]
 [ext_resource type="Script" path="res://scenes/player/character/model.gd" id="6_njupo"]
-
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_bdg7o"]
-dof_blur_far_enabled = true
-dof_blur_far_distance = 357.01
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ncitn"]
 radius = 0.3
@@ -26,7 +23,6 @@ margin = 0.5
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
-attributes = SubResource("CameraAttributesPractical_bdg7o")
 fov = 80.1168
 
 [node name="BuildingComponent" type="Node" parent="."]
@@ -36,6 +32,7 @@ script = ExtResource("4_i3l7a")
 script = ExtResource("5_w8vre")
 
 [node name="ResourceComponent" type="Node" parent="."]
+script = ExtResource("4_4h7i3")
 
 [node name="Character" type="Node3D" parent="."]
 

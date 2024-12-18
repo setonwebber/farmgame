@@ -1,20 +1,20 @@
 extends Node
 
-# this will control the building/crop that will be placed when the action is clicked, and what buildings are in the hotbar. the hotbarlist will be changed with the inventory when i get to it
-var SELECTED_BUILDING: PackedScene
-
-var hotbarList: Array
-var hotbarInputBuffer: String
-
 # some dictionaries that will house all the information we'll need for the buildings
 var buildingsDictionary: Array = Functions.load_from_file("res://assets/dictionaries/buildings.txt")
 var cropsDictionary: Array = Functions.load_from_file("res://assets/dictionaries/crops.txt")
 
+# this will control the building/crop that will be placed when the action is clicked, and what buildings are in the hotbar. the hotbarlist will be changed with the inventory when i get to it
+var SELECTED_BUILDING: PackedScene = null
+
+var hotbarList: Array[String]
+var hotbarInputBuffer: String
+
 func _ready() -> void:
 	hotbarList.append(cropsDictionary[0]["cropScene"])
 
-
 func _input(event: InputEvent):
+	SignalBridge.emit_signal("hotbar_update", SELECTED_BUILDING)
 	if event.is_action_released("hotbar_1"):
 		if hotbarInputBuffer != "hotbar_1":
 			SELECTED_BUILDING = load(hotbarList[0])

@@ -1,15 +1,18 @@
 extends Node
-class_name crop
+
+#dictionary containing all crop values
+var cropsDictionary: Array = Functions.load_from_file("res://assets/dictionaries/crops.txt")
 
 #growspeed is growPercentagePerSecond
-@export var growSpeed: float
-@export var growYield: int
-@export var cropName: String
+@export var cropID: int
+var growSpeed: float = cropsDictionary[cropID]["growSpeed"]
+var growYield: int = cropsDictionary[cropID]["growYield"]
+var cropName: String = cropsDictionary[cropID]["cropName"]
 
 var growPercentage: float
 var cropTier: int
 
-var growthSize: float
+var growthSizeX: float; var growthSizeY: float; var growthSizeZ: float
 
 var grown: bool
 
@@ -19,7 +22,9 @@ var rarity: int
 
 func _ready() -> void:
 	rarity = set_crop_tier(rng.randf_range(0, 100))
-	growthSize = rng.randf_range(0.1, rarity)
+	growthSizeX = rng.randf_range(0.5, rarity)
+	growthSizeY = rng.randf_range(1, rarity)
+	growthSizeZ = rng.randf_range(0.5, rarity)
 	growSpeed = growSpeed * rng.randf_range(1, rarity)
 	growYield = growYield * rng.randf_range(1, rarity)
 	cropModel.scale = Vector3.ZERO
@@ -39,9 +44,9 @@ func _on_timer_timeout():
 	if not grown:
 		growPercentage = growPercentage + growSpeed
 		cropModel.scale = Vector3(
-			clamp(growPercentage * growthSize / 100, 0.1, 2), 
-			clamp(growPercentage * growthSize / 100, 0.1, 20), 
-			clamp(growPercentage * growthSize / 100, 0.1, 2))
+			clamp(growPercentage * growthSizeX / 100, 0.1, 2), 
+			clamp(growPercentage * growthSizeY / 100, 0.1, 20), 
+			clamp(growPercentage * growthSizeZ / 100, 0.1, 2))
 
 func set_crop_tier(rarity):
 	if rarity >= 0 and rarity < 50:
