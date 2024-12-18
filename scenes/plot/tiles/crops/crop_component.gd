@@ -1,8 +1,12 @@
-extends Node
+extends Node3D
+
+signal grow_updated
 
 #dictionary containing all crop values
 var crops_dictionary: Array = Functions.load_from_file("res://assets/dictionaries/crops.txt")
 
+@export var crop_model: PackedScene
+var crop_model_buffer: Node
 #grow_speed is grow_percentagePerSecond
 @export var crop_ID: int
 var grow_speed: float = crops_dictionary[crop_ID]["grow_speed"]
@@ -12,22 +16,24 @@ var crop_name: String = crops_dictionary[crop_ID]["crop_name"]
 var grow_percentage: float
 var crop_tier: int
 
-var growth_size_x: float; var growth_size_y: float; var growth_size_z: float
-
 var grown: bool
 
-@onready var crop_model: Node3D = $".."
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var rarity: int
+var spawn_amount: int
 
 func _ready() -> void:
 	rarity = set_crop_tier(rng.randf_range(0, 100))
-	growth_size_x = rng.randf_range(0.5, rarity)
-	growth_size_y = rng.randf_range(1, rarity)
-	growth_size_z = rng.randf_range(0.5, rarity)
+	
 	grow_speed = grow_speed * rng.randf_range(1, rarity)
 	grow_yield = grow_yield * rng.randf_range(1, rarity)
-	crop_model.scale = Vector3.ZERO
+	
+	spawn_amount = rng.randf_range(1, grow_yield)
+	for crop in spawn_amount:
+		crop_model_buffer = crop_model.instantiate()
+		add_child(crop_model_buffer)
+		pass
+	
 	$Timer.start()
 
 func _process(delta: float) -> void:
@@ -41,10 +47,7 @@ func _process(delta: float) -> void:
 func _on_timer_timeout():
 	if not grow_percentage >= 100:
 		grow_percentage = grow_percentage + grow_speed
-		crop_model.scale = Vector3(
-			clamp(grow_percentage * growth_size_x / 100, 0.1, 2), 
-			clamp(grow_percentage * growth_size_y / 100, 0.1, 20), 
-			clamp(grow_percentage * growth_size_z / 100, 0.1, 2))
+		grow_updated.emit(grow_percentage)
 
 func set_crop_tier(rarity):
 	if rarity >= 0 and rarity < 50:

@@ -17,7 +17,6 @@ func _process(delta: float) -> void:
 			text = text + "Grow Yield: " + str(crop_node.grow_yield) + "\n"
 			text = text + "Grow Percentage: " + str(crop_node.grow_percentage) + "\n"
 			text = text + "Crop Tier: " + str(crop_node.crop_tier) + "\n"
-			text = text + "Growth Size: " + str(crop_node.growth_size_y) + "\n"
 		else:
 			text = " "
 	else:

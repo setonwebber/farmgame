@@ -85,8 +85,6 @@ func harvest_crop():
 		var crop_instance = tile["placed_building"]
 		var cropComponent_instance = crop_instance.get_child(0)
 		if cropComponent_instance.grow_percentage == 100:
-			print(cropComponent_instance.grow_yield, cropComponent_instance.grow_speed)
-
 			# Update tile properties
 			tile["isOccupied"] = false
 			tile["tileType"] = "Empty"
