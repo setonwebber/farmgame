@@ -27,7 +27,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	# Mouse pitch and yaw to camera movement
 	if event is InputEventMouseMotion and toggle_mouse:
-		pitch = clamp(pitch - event.relative.y * mouse_sensitivity, -PI / 2 + 0.001, PI / 2 - 0.001)
+		pitch = clamp(pitch - event.relative.y * mouse_sensitivity, -PI / 2 + 0.01, PI / 2 - 0.01)
 		yaw = yaw - event.relative.x * mouse_sensitivity
 		camera_pivot.rotation = Vector3(pitch, yaw, 0)
 

@@ -67,6 +67,5 @@ mesh = SubResource("BoxMesh_xkqdt")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 10)
 
 [node name="Player" parent="." instance=ExtResource("1_ufhqg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.113985, 0.0210146, 0.274932)
 
 [node name="Control" parent="." instance=ExtResource("5_6uxig")]
