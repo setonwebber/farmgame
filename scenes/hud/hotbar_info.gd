@@ -7,7 +7,7 @@ func _ready() -> void:
 	
 func _on_hotbar_update(SELECTED_BUILDING):
 	if SELECTED_BUILDING:
-		text = str(SELECTED_BUILDING.instantiate().get_child(0).get_child(0).cropName)
+		text = str(SELECTED_BUILDING.instantiate().get_child(0).crop_name)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

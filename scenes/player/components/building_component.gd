@@ -83,9 +83,9 @@ func harvest_crop():
 	var tile = current_plot.get_tile_from_position(parent_player.global_transform.origin + parent_player.global_transform.basis.z)
 	if tile and tile["isOccupied"]:
 		var crop_instance = tile["placed_building"]
-		var cropComponent_instance = crop_instance.get_child(0).get_child(0)
-		if cropComponent_instance.growPercentage == 100:
-			print(cropComponent_instance.growYield, cropComponent_instance.growSpeed)
+		var cropComponent_instance = crop_instance.get_child(0)
+		if cropComponent_instance.grow_percentage == 100:
+			print(cropComponent_instance.grow_yield, cropComponent_instance.grow_speed)
 
 			# Update tile properties
 			tile["isOccupied"] = false
@@ -94,7 +94,7 @@ func harvest_crop():
 
 			crop_instance.queue_free()
 			SignalBridge.emit_signal("preview_plot_update", tile)
-			SignalBridge.emit_signal("crop_harvested", cropComponent_instance.cropID, cropComponent_instance.growYield)
+			SignalBridge.emit_signal("crop_harvested", cropComponent_instance.crop_ID, cropComponent_instance.grow_yield)
 
 func _on_body_entered_plot(player_node, plot):
 	if player_node == parent_player:

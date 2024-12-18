@@ -1,67 +1,65 @@
 extends Node
 
 #dictionary containing all crop values
-var cropsDictionary: Array = Functions.load_from_file("res://assets/dictionaries/crops.txt")
+var crops_dictionary: Array = Functions.load_from_file("res://assets/dictionaries/crops.txt")
 
-#growspeed is growPercentagePerSecond
-@export var cropID: int
-var growSpeed: float = cropsDictionary[cropID]["growSpeed"]
-var growYield: int = cropsDictionary[cropID]["growYield"]
-var cropName: String = cropsDictionary[cropID]["cropName"]
+#grow_speed is grow_percentagePerSecond
+@export var crop_ID: int
+var grow_speed: float = crops_dictionary[crop_ID]["grow_speed"]
+var grow_yield: int = crops_dictionary[crop_ID]["grow_yield"]
+var crop_name: String = crops_dictionary[crop_ID]["crop_name"]
 
-var growPercentage: float
-var cropTier: int
+var grow_percentage: float
+var crop_tier: int
 
-var growthSizeX: float; var growthSizeY: float; var growthSizeZ: float
+var growth_size_x: float; var growth_size_y: float; var growth_size_z: float
 
 var grown: bool
 
-@onready var cropModel: Node3D = $"../.."
+@onready var crop_model: Node3D = $".."
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var rarity: int
 
 func _ready() -> void:
 	rarity = set_crop_tier(rng.randf_range(0, 100))
-	growthSizeX = rng.randf_range(0.5, rarity)
-	growthSizeY = rng.randf_range(1, rarity)
-	growthSizeZ = rng.randf_range(0.5, rarity)
-	growSpeed = growSpeed * rng.randf_range(1, rarity)
-	growYield = growYield * rng.randf_range(1, rarity)
-	cropModel.scale = Vector3.ZERO
+	growth_size_x = rng.randf_range(0.5, rarity)
+	growth_size_y = rng.randf_range(1, rarity)
+	growth_size_z = rng.randf_range(0.5, rarity)
+	grow_speed = grow_speed * rng.randf_range(1, rarity)
+	grow_yield = grow_yield * rng.randf_range(1, rarity)
+	crop_model.scale = Vector3.ZERO
 	$Timer.start()
 
 func _process(delta: float) -> void:
-	if growPercentage >= 100:
-		growPercentage = 100
-		grown = true
+	if grow_percentage >= 100:
+		grow_percentage = 100
 		$Timer.stop()
 	else:
 		if $Timer.is_stopped():
 			$Timer.start()
-		grown = false
 
 func _on_timer_timeout():
-	if not grown:
-		growPercentage = growPercentage + growSpeed
-		cropModel.scale = Vector3(
-			clamp(growPercentage * growthSizeX / 100, 0.1, 2), 
-			clamp(growPercentage * growthSizeY / 100, 0.1, 20), 
-			clamp(growPercentage * growthSizeZ / 100, 0.1, 2))
+	if not grow_percentage >= 100:
+		grow_percentage = grow_percentage + grow_speed
+		crop_model.scale = Vector3(
+			clamp(grow_percentage * growth_size_x / 100, 0.1, 2), 
+			clamp(grow_percentage * growth_size_y / 100, 0.1, 20), 
+			clamp(grow_percentage * growth_size_z / 100, 0.1, 2))
 
 func set_crop_tier(rarity):
 	if rarity >= 0 and rarity < 50:
-		cropTier = 1
+		crop_tier = 1
 	elif rarity >= 50 and rarity < 75:
-		cropTier = 2
+		crop_tier = 2
 	elif rarity >= 75 and rarity < 85:
-		cropTier = 3
+		crop_tier = 3
 	elif rarity >= 85 and rarity < 93:
-		cropTier = 4
+		crop_tier = 4
 	elif rarity >= 93 and rarity < 98:
-		cropTier = 5
+		crop_tier = 5
 	elif rarity >= 98 and rarity <= 100:
-		cropTier = 6
+		crop_tier = 6
 	else:
-		cropTier = 1  # Default case if out of bounds
+		crop_tier = 1  # Default case if out of bounds
 
-	return cropTier
+	return crop_tier

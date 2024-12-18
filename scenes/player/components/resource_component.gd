@@ -1,7 +1,7 @@
 extends Node
 
 #dictionary containing all crop values
-var cropsDictionary: Array = Functions.load_from_file("res://assets/dictionaries/crops.txt")
+var crops_dictionary: Array = Functions.load_from_file("res://assets/dictionaries/crops.txt")
 
 var money: int
 var resource_dictionary: Array[Dictionary]
@@ -12,9 +12,9 @@ func _ready() -> void:
 	SignalBridge.connect("crop_harvested", _on_crop_harvested)
 	
 	# init resource_dictionary
-	for crop in cropsDictionary:
+	for crop in crops_dictionary:
 		resource_dictionary.append({
-			"cropName": crop["cropName"],
+			"cropName": crop["crop_name"],
 			"count": 0
 		})
 	

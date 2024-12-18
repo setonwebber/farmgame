@@ -1,9 +1,9 @@
 [
 	{
-		"cropName": "Carrot",
-		"tileType": "Vegetable",
-		"cropScene": "res://scenes/plot/tiles/crops/carrot.tscn",
-		"growSpeed": 1,
-		"growYield": 4
+		"crop_name": "Carrot",
+		"tile_type": "Vegetable",
+		"crop_scene": "res://scenes/plot/tiles/crops/carrot.tscn",
+		"grow_speed": 1,
+		"grow_yield": 4
 	}
 ]
