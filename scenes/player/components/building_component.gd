@@ -2,7 +2,7 @@ extends Node
 class_name CropComponent
 
 # References
-@onready var parent_player: CharacterBody3D = $"../Character/Physics"
+@onready var parent_player: CharacterBody3D = $"../Physics/PhysicsBody"
 @onready var hotbar_component: Node = $"../HotbarComponent"
 @onready var resource_component: Node = $"../ResourceComponent"
 

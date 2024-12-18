@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://cqe3bliijkea7"]
+[gd_scene load_steps=8 format=3 uid="uid://cqe3bliijkea7"]
 
 [ext_resource type="Script" path="res://scenes/player/visuals.gd" id="1_yl15l"]
-[ext_resource type="Script" path="res://scenes/player/physics_body.gd" id="2_v28ol"]
 [ext_resource type="PackedScene" uid="uid://do7uwyxvt4lqw" path="res://assets/models/untitled.glb" id="3_vo6or"]
 [ext_resource type="Script" path="res://scenes/player/components/resource_component.gd" id="4_4h7i3"]
 [ext_resource type="Script" path="res://scenes/player/components/building_component.gd" id="4_i3l7a"]
@@ -18,7 +17,6 @@ height = 1.0
 script = ExtResource("5_xt2qy")
 
 [node name="PhysicsBody" type="CharacterBody3D" parent="Physics"]
-script = ExtResource("2_v28ol")
 
 [node name="CollisionBox" type="CollisionShape3D" parent="Physics/PhysicsBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.489904, 0)
@@ -26,9 +24,6 @@ shape = SubResource("CapsuleShape3D_ncitn")
 
 [node name="Visuals" type="Node" parent="."]
 script = ExtResource("1_yl15l")
-
-[node name="Model" parent="Visuals" instance=ExtResource("3_vo6or")]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
 
 [node name="CameraPivot" type="Node3D" parent="Visuals"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -40,6 +35,9 @@ margin = 0.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 current = true
 fov = 80.1168
+
+[node name="Model" parent="Visuals" instance=ExtResource("3_vo6or")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
 
 [node name="BuildingComponent" type="Node" parent="."]
 script = ExtResource("4_i3l7a")
