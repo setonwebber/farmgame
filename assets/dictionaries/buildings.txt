@@ -1,6 +1,0 @@
-[
-	{
-		"building_name": "Harvester",
-		"building_tier": 1
-	}
-]
