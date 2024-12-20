@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cykt1i6608yt7"]
+
+[ext_resource type="Script" path="res://scenes/farm/farm_plot/plot_component.gd" id="1_12bg5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3niba"]
+size = Vector3(1, 0.1, 1)
+
+[node name="FarmPlot" type="Node3D"]
+
+[node name="PlotComponent" type="Node3D" parent="."]
+script = ExtResource("1_12bg5")
+plot_width = null
+plot_height = null
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="GroundMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_3niba")

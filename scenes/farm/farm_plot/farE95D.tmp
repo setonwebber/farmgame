@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cykt1i6608yt7"]
+
+[ext_resource type="Script" path="res://scenes/farm/farm_plot/farm_plot.gd" id="1_12bg5"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7rn6y"]
+
+[node name="FarmPlot" type="Node3D"]
+script = ExtResource("1_12bg5")
+plot_width = null
+plot_height = null
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="GroundMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00560486, -1.19209e-07, 0.0028739)
+mesh = SubResource("PlaneMesh_7rn6y")
