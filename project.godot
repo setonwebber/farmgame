@@ -15,12 +15,6 @@ run/main_scene="res://scenes/world/world.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-Functions="*res://scripts/functions.gd"
-SignalBridge="*res://scripts/signal_bridge.gd"
-Global="*res://scripts/global.gd"
-
 [display]
 
 window/size/viewport_width=1920
