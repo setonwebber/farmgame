@@ -31,7 +31,7 @@ func _input(event: InputEvent) -> void:
 		yaw = yaw - event.relative.x * mouse_sensitivity
 		camera_pivot.rotation = Vector3(pitch, yaw, 0)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	# Storing previous model position and rotation for interpolation
 	model_prev_position = model.global_position
 	model_prev_rotation_y = model.global_rotation.y

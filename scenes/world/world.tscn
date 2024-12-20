@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bgav67kkgvf2p"]
+[gd_scene load_steps=11 format=3 uid="uid://bgav67kkgvf2p"]
 
 [ext_resource type="PackedScene" uid="uid://cqe3bliijkea7" path="res://scenes/player/player.tscn" id="1_ufhqg"]
 [ext_resource type="Shader" uid="uid://p37mi27aq35g" path="res://assets/textures/shaders/floor_seamless.tres" id="2_il4ab"]
 [ext_resource type="Texture2D" uid="uid://ea2thuya2oai" path="res://assets/hdri_skybox.exr" id="4_62gb8"]
+[ext_resource type="PackedScene" uid="uid://cykt1i6608yt7" path="res://scenes/farm/farm_plot/farm_plot.tscn" id="4_jsxhq"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_a1hca"]
 panorama = ExtResource("4_62gb8")
@@ -62,3 +63,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00358391, 0.0068022, 0)
 mesh = SubResource("BoxMesh_xkqdt")
 
 [node name="Player" parent="." instance=ExtResource("1_ufhqg")]
+
+[node name="FarmPlot" parent="." instance=ExtResource("4_jsxhq")]
