@@ -1,12 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cqe3bliijkea7"]
+[gd_scene load_steps=6 format=3 uid="uid://cqe3bliijkea7"]
 
 [ext_resource type="Script" path="res://scenes/player/visuals/visuals.gd" id="1_yl15l"]
-[ext_resource type="Script" path="res://scenes/player/player_class.gd" id="2_omyhf"]
 [ext_resource type="PackedScene" uid="uid://do7uwyxvt4lqw" path="res://assets/models/untitled.glb" id="3_vo6or"]
 [ext_resource type="Script" path="res://scenes/player/farming/farming.gd" id="4_xnvqk"]
 [ext_resource type="Script" path="res://scenes/player/physics/physics.gd" id="5_xt2qy"]
-[ext_resource type="Script" path="res://scenes/player/hotbar/hotbar.gd" id="6_yx5tc"]
-[ext_resource type="Resource" uid="uid://iq8180045uym" path="res://scenes/farm/crops/carrot.tres" id="7_6qaq4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ncitn"]
 radius = 0.3
@@ -18,7 +15,6 @@ height = 1.0
 script = ExtResource("5_xt2qy")
 
 [node name="PhysicsBody" type="CharacterBody3D" parent="Physics"]
-script = ExtResource("2_omyhf")
 
 [node name="CollisionBox" type="CollisionShape3D" parent="Physics/PhysicsBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.489904, 0)
@@ -40,10 +36,6 @@ margin = 0.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 current = true
 fov = 80.1168
-
-[node name="HotBar" type="Node" parent="."]
-script = ExtResource("6_yx5tc")
-SELECTED_CROP = ExtResource("7_6qaq4")
 
 [node name="Farming" type="Node" parent="."]
 script = ExtResource("4_xnvqk")

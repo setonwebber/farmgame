@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FarmCrop" load_steps=3 format=3 uid="uid://iq8180045uym"]
+
+[ext_resource type="Script" path="res://scenes/farm/crops/farm_crop.gd" id="1_wnelv"]
+[ext_resource type="Script" path="res://scenes/farm/soils/farm_soil.gd" id="2_ypsle"]
+
+[resource]
+script = ExtResource("1_wnelv")
+id_code = "carrot"
+name = "Carrot"
+description = "orange cylinder dildo carrot"
+growth_time = 10
+water_usage = 0.0
+soil_required = Array[ExtResource("2_ypsle")]([])
+crop_yield = 10
+stage_models = Array[PackedScene]([])
+stage_times = Array[int]([])
