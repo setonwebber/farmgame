@@ -14,7 +14,7 @@ func _ready() -> void:
 	var temp_box: BoxShape3D = BoxShape3D.new()
 	temp_box.size = Vector3(plot_width + 2, 2, plot_height + 2)
 	collision_box.shape = temp_box
-	collision_box.position = position + Vector3(plot_width / 2, 0, plot_height / 2)
+	collision_box.position = Vector3(plot_width / 2, 0, plot_height / 2)
 	
 	# Creates a 2D array of PlotSquare objects, 
 	for x in range(plot_width):
@@ -27,8 +27,8 @@ func _ready() -> void:
 
 func get_plot_square(global_location: Vector3) -> PlotSquare:
 	var local_position: Vector3 = to_local(global_location)
-	var plot_x: int = floor(local_position.x - position.x)
-	var plot_z: int = floor(local_position.z - position.z)
+	var plot_x: int = floor(local_position.x)
+	var plot_z: int = floor(local_position.z)
 	if (0 <= plot_x and plot_x < plot_width) and (0 <= plot_z and plot_z < plot_height):
 		return plot_array[plot_x][plot_z]
 	else:

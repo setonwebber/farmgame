@@ -64,3 +64,10 @@ mesh = SubResource("BoxMesh_xkqdt")
 [node name="Player" parent="." instance=ExtResource("1_ufhqg")]
 
 [node name="FarmPlot" parent="." instance=ExtResource("4_jsxhq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8806, 0, -10.7054)
+
+[node name="FarmPlot2" parent="." instance=ExtResource("4_jsxhq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7246, 0, -12.3552)
+
+[node name="FarmPlot3" parent="." instance=ExtResource("4_jsxhq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2746, 0, 6.62278)
