@@ -2,12 +2,19 @@
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_skdtj"]
 [ext_resource type="Script" path="res://scenes/player/visuals/visuals.gd" id="1_yl15l"]
-[ext_resource type="Script" path="res://scenes/player/physics/player_physics_body.gd" id="3_68ucg"]
 [ext_resource type="PackedScene" uid="uid://do7uwyxvt4lqw" path="res://assets/models/untitled.glb" id="3_vo6or"]
 [ext_resource type="Script" path="res://scenes/player/farming/farming.gd" id="4_xnvqk"]
 [ext_resource type="Script" path="res://scenes/player/physics/physics.gd" id="5_xt2qy"]
 [ext_resource type="Script" path="res://scenes/player/hotbar/hotbar.gd" id="6_yx5tc"]
 [ext_resource type="Resource" uid="uid://iq8180045uym" path="res://scenes/farm/crops/carrot.tres" id="7_6qaq4"]
+
+[sub_resource type="GDScript" id="GDScript_h6gsu"]
+script/source = "extends CharacterBody3D
+class_name Player
+
+# this is here so the player_detection script can call the functions in the farming component
+@onready var farming_component: Node = $\"../../Farming\"
+"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ncitn"]
 radius = 0.3
@@ -20,7 +27,7 @@ script = ExtResource("1_skdtj")
 script = ExtResource("5_xt2qy")
 
 [node name="PhysicsBody" type="CharacterBody3D" parent="Physics"]
-script = ExtResource("3_68ucg")
+script = SubResource("GDScript_h6gsu")
 
 [node name="CollisionBox" type="CollisionShape3D" parent="Physics/PhysicsBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.489904, 0)

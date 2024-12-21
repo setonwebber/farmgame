@@ -1,11 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d48hr0fa7ne2"]
+[gd_scene load_steps=3 format=3 uid="uid://d48hr0fa7ne2"]
 
 [ext_resource type="Script" path="res://scenes/farm/farm_plot/plot_square/plot_square.gd" id="1_jbv3q"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xb4yo"]
 size = Vector2(1, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_t1ude"]
 
 [node name="PlotSquare" type="Node3D"]
 script = ExtResource("1_jbv3q")
@@ -13,9 +11,3 @@ script = ExtResource("1_jbv3q")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
 mesh = SubResource("PlaneMesh_xb4yo")
-
-[node name="Area3D" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("BoxShape3D_t1ude")
