@@ -7,7 +7,7 @@ size = Vector3(1, 2, 1)
 
 [node name="FarmPlot" type="Node3D"]
 script = ExtResource("1_12bg5")
-plot_width = 10
+plot_width = 7
 plot_height = 10
 
 [node name="Area3D" type="Area3D" parent="."]
