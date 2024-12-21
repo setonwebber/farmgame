@@ -30,11 +30,13 @@ func _ready() -> void:
 
 func get_plot_square(global_location: Vector3) -> PlotSquare:
 	var local_position: Vector3 = to_local(global_location)
-	print("local position" + str(local_position))
-	var plot_x: int = floor(local_position.x - position.x)
-	var plot_z: int = floor(local_position.z - position.z)
+	print("\n\nget_plot_square call:\nlocal position" + str(local_position))
+	var plot_x: int = floor(local_position.x)
+	var plot_z: int = floor(local_position.z)
 	print(plot_array[plot_x][plot_z])
 	if (0 < plot_x and plot_x < plot_width - 1) and (0 < plot_z and plot_z < plot_height - 1):
+		print("end of get_plot_square call\n\n")
 		return plot_array[plot_x][plot_z]
 	else:
+		print("end of get_plot_square call\n\n")
 		return null

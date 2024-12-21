@@ -15,13 +15,12 @@ func _input(event: InputEvent) -> void:
 
 func crop_place():
 	if occupied_plot and hotbar.SELECTED_CROP: # and owned_plot == occupied_plot (for when i do ownership)
-		print("first_pass")
-		print(occupied_plot)
+		print("\n_________\ncrop_place call\noccupied plot: ", occupied_plot)
 		var plot_square: PlotSquare = occupied_plot.get_plot_square(physics_body.position)
-		print(plot_square)
+		print("plot_square: ", plot_square)
 		if plot_square and plot_square.crop == null:
-			plot_square.crop == hotbar.SELECTED_CROP
-			print(plot_square, hotbar.SELECTED_CROP)
+			plot_square.crop = hotbar.SELECTED_CROP
+			print("placed crop: ", plot_square.crop)
 
 func crop_harvest():
 	if occupied_plot: # and owned_plot == occupied_plot (for when i do ownership)
