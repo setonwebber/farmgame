@@ -4,7 +4,7 @@ extends Node
 @onready var camera_pivot: Node3D = $"../Visuals/CameraPivot"
 
 var speed: float = 3.0
-var rotation_speed: float = PI * 2.2
+var rotation_speed: float = PI * 3
 var jump_velocity: float = 2.5
 
 var input_dir: Vector2
@@ -26,16 +26,18 @@ func _physics_process(delta: float) -> void:
 			physics_body.velocity.x = direction.x * speed
 			physics_body.velocity.z = direction.z * speed
 			physics_body.rotation.y = lerp_angle(physics_body.rotation.y, atan2(direction.x, direction.z), rotation_speed * delta)
+			
+			# Sprinting
+			if Input.is_action_pressed("sprint"):
+				physics_body.velocity = physics_body.velocity * 2
+				
 		else:
 			physics_body.velocity.x = move_toward(physics_body.velocity.x, 0, speed)
 			physics_body.velocity.z = move_toward(physics_body.velocity.z, 0, speed)
 		
-		# Sprinting
-		if Input.is_action_pressed("sprint"):
-			physics_body.velocity = physics_body.velocity * 2
-		
 		# Jumping
 		if Input.is_action_just_pressed("jump"):
 			physics_body.velocity.y = jump_velocity
-
+			physics_body.rotation.y = atan2(direction.x, direction.z)
+	
 	physics_body.move_and_slide()
