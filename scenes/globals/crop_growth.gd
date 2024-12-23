@@ -1,6 +1,6 @@
 extends Node
 
-var crops_placed: Array[FarmCrop]
+var crops_placed: Dictionary
 var timer: Timer = Timer.new()
 
 func _ready() -> void:
@@ -8,13 +8,14 @@ func _ready() -> void:
 	add_child(timer)
 	
 	# Configure the timer properties
-	timer.wait_time = 5
+	timer.wait_time = 0.1
 	timer.autostart = true
 	
 	# Connect the timer's timeout signal to the function
 	timer.timeout.connect(_on_timer_timeout)
+	timer.start()
 
 func _on_timer_timeout() -> void:
 	# Function to execute on every timer tick
-	print("Timer ticked!")
-	# Add any additional logic here, like interacting with crops_placed
+	for crop in crops_placed:
+		crop.grow()

@@ -12,5 +12,5 @@ growth_time = 10
 water_usage = 0.0
 soil_required = Array[ExtResource("2_ypsle")]([])
 crop_yield = 10
-stage_models = Array[PackedScene]([])
-stage_times = Array[int]([])
+stage_models = Array[PackedScene]([null, null, null])
+stage_times = Array[int]([0, 50, 100])
