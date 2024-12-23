@@ -18,8 +18,8 @@ func grow():
 	if growth_tick < crop.stage_times[-1]:
 		for x in range(crop.stage_times.size()):
 			if growth_tick >= crop.stage_times[x] and growth_tick < crop.stage_times[x + 1]: 
-				print("in stage: ", x)
+				# change model of crop 
+				pass
 	else:
 		grown = true
 		CropGrowth.crops_placed.erase(self)
-		print("cropgrown")
