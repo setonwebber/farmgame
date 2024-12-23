@@ -21,16 +21,6 @@ func _physics_process(delta: float) -> void:
 	if not physics_body.is_on_floor():
 		physics_body.velocity = physics_body.velocity + physics_body.get_gravity() * delta
 	else:
-		# Sprinting
-		if Input.is_action_just_pressed("sprint"):
-			speed = speed * 2
-		elif Input.is_action_just_released("sprint"):
-			speed = speed / 2
-		
-			# Jumping
-		if Input.is_action_just_pressed("jump"):
-			physics_body.velocity.y = jump_velocity
-
 		# Movement
 		if direction != Vector3.ZERO:
 			physics_body.velocity.x = direction.x * speed
@@ -39,5 +29,13 @@ func _physics_process(delta: float) -> void:
 		else:
 			physics_body.velocity.x = move_toward(physics_body.velocity.x, 0, speed)
 			physics_body.velocity.z = move_toward(physics_body.velocity.z, 0, speed)
+		
+		# Sprinting
+		if Input.is_action_pressed("sprint"):
+			physics_body.velocity = physics_body.velocity * 2
+		
+		# Jumping
+		if Input.is_action_just_pressed("jump"):
+			physics_body.velocity.y = jump_velocity
 
 	physics_body.move_and_slide()
