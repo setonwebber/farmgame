@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jcyjhvvxy6c2"
-path.s3tc="res://.godot/imported/floortexture.jpg-83547e3669bbbf9755816de20184d2c6.s3tc.ctex"
+uid="uid://ea2thuya2oai"
+path.bptc="res://.godot/imported/hdri_skybox.exr-72cf6672d149194f425cac369e58aa16.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/floortexture.jpg"
-dest_files=["res://.godot/imported/floortexture.jpg-83547e3669bbbf9755816de20184d2c6.s3tc.ctex"]
+source_file="res://assets/textures/hdri_skybox.exr"
+dest_files=["res://.godot/imported/hdri_skybox.exr-72cf6672d149194f425cac369e58aa16.bptc.ctex"]
 
 [params]
 

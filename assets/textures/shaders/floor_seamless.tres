@@ -1,6 +1,6 @@
 [gd_resource type="VisualShader" load_steps=24 format=3 uid="uid://p37mi27aq35g"]
 
-[ext_resource type="Texture2D" uid="uid://jcyjhvvxy6c2" path="res://assets/floortexture.jpg" id="1_31r52"]
+[ext_resource type="Texture2D" uid="uid://jcyjhvvxy6c2" path="res://assets/textures/floortexture.jpg" id="1_31r52"]
 
 [sub_resource type="VisualShaderNodeRotationByAxis" id="VisualShaderNodeRotationByAxis_1uuqk"]
 default_input_values = [0, Vector3(0, 0, 0), 1, 0.39, 2, Vector3(0, 0, 90)]

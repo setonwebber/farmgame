@@ -15,6 +15,10 @@ run/main_scene="res://scenes/world/world.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+CropGrowth="*res://scenes/globals/crop_growth.gd"
+
 [display]
 
 window/size/viewport_width=1920

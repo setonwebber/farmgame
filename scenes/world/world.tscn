@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cqe3bliijkea7" path="res://scenes/player/player.tscn" id="1_ufhqg"]
 [ext_resource type="Shader" uid="uid://p37mi27aq35g" path="res://assets/textures/shaders/floor_seamless.tres" id="2_il4ab"]
-[ext_resource type="Texture2D" uid="uid://ea2thuya2oai" path="res://assets/hdri_skybox.exr" id="4_62gb8"]
+[ext_resource type="Texture2D" uid="uid://ea2thuya2oai" path="res://assets/textures/hdri_skybox.exr" id="4_62gb8"]
 [ext_resource type="PackedScene" uid="uid://cykt1i6608yt7" path="res://scenes/farm/farm_plot/farm_plot.tscn" id="4_jsxhq"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_a1hca"]
