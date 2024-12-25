@@ -20,8 +20,6 @@ func crop_place():
 		if plot_square and not plot_square.crop:
 			plot_square.crop = hotbar.SELECTED_CROP
 			plot_square.planted()
-			
-			CropGrowth.crops_placed[plot_square] = true
 
 func crop_remove():
 	if farm_plot:
@@ -29,6 +27,7 @@ func crop_remove():
 		
 		# if there is a plot_square where the player is facing and the plot_square doesnt have a crop planted
 		if plot_square and plot_square.crop:
+			plot_square.harvested()
 			if plot_square.grown == true:
 				print("harvesting grown plant")
 				plot_square.crop = null

@@ -14,7 +14,7 @@ func _ready() -> void:
 	var temp_box: BoxShape3D = BoxShape3D.new()
 	temp_box.size = Vector3(plot_width + 2, 2, plot_height + 2)
 	collision_box.shape = temp_box
-	collision_box.position = Vector3(plot_width / 2, 0, plot_height / 2)
+	collision_box.position = Vector3(float(plot_width) / 2, 0, float(plot_height) / 2)
 	
 	# Creates a 2D array of PlotSquare objects, 
 	for x in range(plot_width):
