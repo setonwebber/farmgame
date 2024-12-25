@@ -28,7 +28,7 @@ class_name FarmCrop
 
 ## An array of .gltf files for the visual data related to each stage of crop growth.
 ## The size of the Array represents the number of stages.
-@export var stage_models: Array[PackedScene]:
+@export var stage_models: Array[Mesh]:
 	set(value):
 		stage_models = value
 		stage_times.resize(stage_models.size())

@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="FarmCrop" load_steps=3 format=3 uid="uid://iq8180045uym"]
+[gd_resource type="Resource" script_class="FarmCrop" load_steps=4 format=3 uid="uid://iq8180045uym"]
 
 [ext_resource type="Script" path="res://scenes/farm/crops/farm_crop.gd" id="1_wnelv"]
 [ext_resource type="Script" path="res://scenes/farm/soils/farm_soil.gd" id="2_ypsle"]
+[ext_resource type="ArrayMesh" uid="uid://did1yt0anivfq" path="res://assets/models/carrot.obj" id="3_1xocd"]
 
 [resource]
 script = ExtResource("1_wnelv")
@@ -12,5 +13,5 @@ growth_time = 10
 water_usage = 0.0
 soil_required = Array[ExtResource("2_ypsle")]([])
 crop_yield = 10
-stage_models = Array[PackedScene]([null, null, null])
+stage_models = Array[Mesh]([ExtResource("3_1xocd"), ExtResource("3_1xocd"), ExtResource("3_1xocd")])
 stage_times = Array[int]([0, 50, 100])
