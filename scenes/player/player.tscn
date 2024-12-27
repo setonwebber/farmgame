@@ -1,52 +1,58 @@
-[gd_scene load_steps=11 format=3 uid="uid://cqe3bliijkea7"]
+[gd_scene load_steps=7 format=3 uid="uid://cqe3bliijkea7"]
 
-[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_skdtj"]
-[ext_resource type="Script" path="res://scenes/player/visuals/visuals.gd" id="1_yl15l"]
-[ext_resource type="Script" path="res://scenes/player/physics/player_physics_body.gd" id="3_68ucg"]
+[ext_resource type="Script" path="res://scenes/player/visuals.gd" id="1_yl15l"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="3_68ucg"]
 [ext_resource type="PackedScene" uid="uid://do7uwyxvt4lqw" path="res://assets/models/untitled.glb" id="3_vo6or"]
-[ext_resource type="Script" path="res://scenes/player/farming/farming.gd" id="4_xnvqk"]
-[ext_resource type="Script" path="res://scenes/player/physics/physics.gd" id="5_xt2qy"]
-[ext_resource type="Script" path="res://scenes/player/hotbar/hotbar.gd" id="6_yx5tc"]
-[ext_resource type="Resource" uid="uid://iq8180045uym" path="res://scenes/farm/crops/carrot.tres" id="7_6qaq4"]
-[ext_resource type="Script" path="res://scenes/farm/crops/farm_crop.gd" id="7_jysiu"]
+[ext_resource type="Script" path="res://scenes/items/crates/item_interaction.gd" id="6_d0as4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ncitn"]
 radius = 0.3
 height = 1.0
 
-[node name="Player" type="Node3D"]
-script = ExtResource("1_skdtj")
+[sub_resource type="SphereShape3D" id="SphereShape3D_djf6a"]
+radius = 1.25
 
-[node name="Physics" type="Node" parent="."]
-script = ExtResource("5_xt2qy")
-
-[node name="PhysicsBody" type="CharacterBody3D" parent="Physics"]
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("3_68ucg")
 
-[node name="CollisionBox" type="CollisionShape3D" parent="Physics/PhysicsBody"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.489904, 0)
+[node name="PhysicsCollisionBox" type="CollisionShape3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CapsuleShape3D_ncitn")
 
-[node name="Visuals" type="Node" parent="."]
+[node name="Model" parent="." instance=ExtResource("3_vo6or")]
+unique_name_in_owner = true
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+top_level = true
+
+[node name="CameraPivot" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+top_level = true
 script = ExtResource("1_yl15l")
 
-[node name="Model" parent="Visuals" instance=ExtResource("3_vo6or")]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
-
-[node name="CameraPivot" type="Node3D" parent="Visuals"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-
-[node name="SpringArm3D" type="SpringArm3D" parent="Visuals/CameraPivot"]
+[node name="CameraSpringArm" type="SpringArm3D" parent="CameraPivot"]
+unique_name_in_owner = true
 margin = 0.5
 
-[node name="Camera3D" type="Camera3D" parent="Visuals/CameraPivot/SpringArm3D"]
+[node name="Camera" type="Camera3D" parent="CameraPivot/CameraSpringArm"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 current = true
 fov = 80.1168
 
-[node name="HotBar" type="Node" parent="."]
-script = ExtResource("6_yx5tc")
-hotbar_list = Array[ExtResource("7_jysiu")]([ExtResource("7_6qaq4")])
+[node name="ItemInteractionArea" type="Area3D" parent="."]
+unique_name_in_owner = true
+collision_layer = 8
+collision_mask = 4
 
-[node name="Farming" type="Node" parent="."]
-script = ExtResource("4_xnvqk")
+[node name="ItemInteractionCollisionBox" type="CollisionShape3D" parent="ItemInteractionArea"]
+shape = SubResource("SphereShape3D_djf6a")
+
+[node name="ItemInteraction" type="Node" parent="."]
+script = ExtResource("6_d0as4")
+
+[connection signal="body_entered" from="ItemInteractionArea" to="ItemInteraction" method="_add_nearby_item"]
+[connection signal="body_exited" from="ItemInteractionArea" to="ItemInteraction" method="_remove_nearby_item"]

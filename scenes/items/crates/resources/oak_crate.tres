@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CrateData" load_steps=2 format=3 uid="uid://bu87n56dhr06e"]
+
+[ext_resource type="Script" path="res://scenes/items/crates/resources/crate_data.gd" id="1_5l774"]
+
+[resource]
+script = ExtResource("1_5l774")
+id_code = "oak_crate"
+name = "Oak Crate"
+description = "minecraft wood!"
+capacity = 100
