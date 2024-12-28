@@ -1,10 +1,10 @@
 class_name Crate extends Item
 
-func pickup() -> void:
+func pickup(player: Player) -> void:
 	pass
 
-func drop() -> void:
+func drop(player: Player) -> void:
 	pass
 
-func use() -> void:
+func use(player: Player) -> void:
 	pass

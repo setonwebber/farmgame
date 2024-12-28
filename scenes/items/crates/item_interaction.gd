@@ -6,13 +6,13 @@ var nearby_items: Array[Item]
 var held_item: Item
 
 func _physics_process(delta: float) -> void:
-	if not nearby_items.is_empty() and player.velocity.length() != 0:
+	if not nearby_items.is_empty() and player.velocity.length() != 0 and not held_item:
 		nearby_items.sort_custom(sort_items_ascending)
-		print(nearby_items)
 
 func pickup_item() -> void:
-	if not held_item:
-		pass
+	if not held_item and not nearby_items.is_empty():
+		held_item.pickup()
+		held_item = nearby_items.pop_front()
 	else: # do nothing
 		pass
 
