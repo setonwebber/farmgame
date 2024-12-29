@@ -2,11 +2,11 @@ class_name Item extends RigidBody3D
 
 var id: String
 
-func pickup(player: Player) -> void:
+func pickup(_player: Player) -> void:
 	pass
 
-func drop(player: Player) -> void:
+func drop(_player: Player) -> void:
 	pass
 
-func use(player: Player) -> void:
+func use(_player: Player) -> void:
 	pass
