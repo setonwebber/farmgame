@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://bgav67kkgvf2p"]
+
+[ext_resource type="PackedScene" uid="uid://cqe3bliijkea7" path="res://player/player.tscn" id="1_ufhqg"]
+[ext_resource type="Shader" uid="uid://p37mi27aq35g" path="res://world/textures/shaders/floor_seamless.tres" id="2_il4ab"]
+[ext_resource type="Texture2D" uid="uid://ea2thuya2oai" path="res://world/textures/hdri_skybox.exr" id="4_62gb8"]
+[ext_resource type="PackedScene" uid="uid://bjvb0glpsd56u" path="res://items/crates/crate.tscn" id="4_fu7k0"]
+[ext_resource type="PackedScene" uid="uid://cykt1i6608yt7" path="res://farm/farm_plot/farm_plot.tscn" id="5_nqrcf"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_a1hca"]
+panorama = ExtResource("4_62gb8")
+
+[sub_resource type="Sky" id="Sky_r5u1c"]
+sky_material = SubResource("PanoramaSkyMaterial_a1hca")
+
+[sub_resource type="Environment" id="Environment_67sig"]
+background_mode = 2
+background_energy_multiplier = 0.65
+sky = SubResource("Sky_r5u1c")
+ambient_light_source = 3
+reflected_light_source = 2
+tonemap_mode = 2
+tonemap_exposure = 0.9
+tonemap_white = 0.8
+ssao_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_read_sky_light = false
+fog_light_color = Color(1, 1, 1, 1)
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.055
+volumetric_fog_emission_energy = 0.0
+volumetric_fog_gi_inject = 0.0
+volumetric_fog_sky_affect = 0.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qj8l2"]
+size = Vector3(50, 0.1, 50)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8gclk"]
+render_priority = 0
+shader = ExtResource("2_il4ab")
+
+[sub_resource type="BoxMesh" id="BoxMesh_xkqdt"]
+material = SubResource("ShaderMaterial_8gclk")
+size = Vector3(50, 0.1, 50)
+subdivide_width = 50
+subdivide_depth = 50
+
+[node name="World" type="Node"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_67sig")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_qj8l2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_xkqdt")
+
+[node name="Player" parent="." instance=ExtResource("1_ufhqg")]
+
+[node name="Crate" parent="." instance=ExtResource("4_fu7k0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23858, 0.940345, -1.42236)
+
+[node name="FarmPlot" parent="." instance=ExtResource("5_nqrcf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50974, 0.0214279, 1.84504)
+
+[node name="FarmPlot2" parent="." instance=ExtResource("5_nqrcf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.622, 0.0428558, 9.1233)
+
+[node name="FarmPlot3" parent="." instance=ExtResource("5_nqrcf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2359, 0.0642875, -13.2947)
+
+[node name="FarmPlot4" parent="." instance=ExtResource("5_nqrcf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.33288, 0.0857116, -16.6237)

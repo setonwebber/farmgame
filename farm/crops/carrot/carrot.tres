@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="FarmCrop" load_steps=6 format=3 uid="uid://chfrt1p4tipl2"]
+
+[ext_resource type="Script" path="res://farm/crops/farm_crop.gd" id="1_swpb8"]
+[ext_resource type="Script" path="res://farm/soils/farm_soil.gd" id="2_256c6"]
+[ext_resource type="ArrayMesh" uid="uid://closnlouyud32" path="res://farm/crops/carrot/models/carrot_growth_0_var1.obj" id="3_x0jvc"]
+[ext_resource type="ArrayMesh" uid="uid://vb0hpj3ifoiq" path="res://farm/crops/carrot/models/carrot_growth_1_var1.obj" id="4_nbaw0"]
+[ext_resource type="ArrayMesh" uid="uid://bx4ns4sm7e2bo" path="res://farm/crops/carrot/models/carrot_growth_2_var1.obj" id="5_0h02e"]
+
+[resource]
+script = ExtResource("1_swpb8")
+id_code = "carrot"
+name = "Carrot"
+description = "orang"
+render_type = "single"
+growth_time = 150
+water_usage = 0.0
+soil_required = Array[ExtResource("2_256c6")]([])
+crop_yield = 100
+stage_models = Array[Mesh]([ExtResource("3_x0jvc"), ExtResource("4_nbaw0"), ExtResource("5_0h02e")])
+stage_times = Array[int]([0, 50, 100])
