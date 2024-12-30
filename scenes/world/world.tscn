@@ -69,5 +69,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23858, 0.940345, -1.42236)
 
 [node name="FarmPlot" parent="." instance=ExtResource("5_nqrcf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50974, 0.0214279, 1.84504)
-plot_width = 2
-plot_height = 2

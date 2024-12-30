@@ -9,6 +9,8 @@ class_name FarmCrop
 @export var name: String
 ## The display description of a crop.
 @export var description: String
+## The render type of the crop. "single" or "group"
+@export var render_type: String
 
 ## The number of growth ticks required to fully grow the crop.
 @export var growth_time: int:
@@ -28,7 +30,7 @@ class_name FarmCrop
 
 ## An array of .gltf files for the visual data related to each stage of crop growth.
 ## The size of the Array represents the number of stages.
-@export var stage_models: Array[PackedScene]:
+@export var stage_models: Array[Mesh]:
 	set(value):
 		stage_models = value
 		stage_times.resize(stage_models.size())

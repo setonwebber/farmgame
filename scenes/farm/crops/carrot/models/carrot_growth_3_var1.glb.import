@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://do7uwyxvt4lqw"
-path="res://.godot/imported/untitled.glb-71183bc741234b9cc9b84331b9c18caf.scn"
+uid="uid://cr2jofurnckj0"
+path="res://.godot/imported/carrot_growth_3_var1.glb-6cebe38fc35d7b9fb53a196fc3378ca6.scn"
 
 [deps]
 
-source_file="res://assets/models/untitled.glb"
-dest_files=["res://.godot/imported/untitled.glb-71183bc741234b9cc9b84331b9c18caf.scn"]
+source_file="res://scenes/farm/crops/carrot/models/carrot_growth_3_var1.glb"
+dest_files=["res://.godot/imported/carrot_growth_3_var1.glb-6cebe38fc35d7b9fb53a196fc3378ca6.scn"]
 
 [params]
 

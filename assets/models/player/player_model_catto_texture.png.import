@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m14v54yxrynv"
-path.s3tc="res://.godot/imported/untitled_catto_texture.png-f207af6fe1f0a3e5f10741572cf607f2.s3tc.ctex"
+uid="uid://cmy6437spqjpf"
+path.s3tc="res://.godot/imported/player_model_catto_texture.png-3e1155f7f39c57b08908e4b3460dd005.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/models/untitled_catto_texture.png"
-dest_files=["res://.godot/imported/untitled_catto_texture.png-f207af6fe1f0a3e5f10741572cf607f2.s3tc.ctex"]
+source_file="res://assets/models/player/player_model_catto_texture.png"
+dest_files=["res://.godot/imported/player_model_catto_texture.png-3e1155f7f39c57b08908e4b3460dd005.s3tc.ctex"]
 
 [params]
 
