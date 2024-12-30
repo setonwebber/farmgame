@@ -2,8 +2,6 @@ class_name PlayerIdleState extends PlayerMovementState
 
 @onready var player: Player = $"../.."
 
-var speed: float = 3.0
-
 ## Called by the state machine in _input()
 func handle_input(_event: InputEvent) -> void:
 	pass
@@ -14,8 +12,8 @@ func update(_delta: float) -> void:
 
 ## Called by the state machine in _physics_process()
 func physics_update(_delta: float) -> void:
-	player.velocity.x = move_toward(player.velocity.x, 0, speed)
-	player.velocity.z = move_toward(player.velocity.z, 0, speed)
+	player.velocity.x = move_toward(player.velocity.x, 0, player.walk_speed)
+	player.velocity.z = move_toward(player.velocity.z, 0, player.walk_speed)
 	player.move_and_slide()
 	
 	var wasd_vector: Vector2 = Input.get_vector("a", "d", "w", "s")

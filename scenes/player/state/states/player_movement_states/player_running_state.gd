@@ -3,7 +3,6 @@ class_name PlayerRunningState extends PlayerMovementState
 @onready var player: Player = $"../.."
 @onready var camera_pivot: Node3D = $"../../CameraPivot"
 
-var speed: float = 6.0
 var rotation_speed: float = PI * 3
 
 ## Called by the state machine in _input()
@@ -18,16 +17,16 @@ func update(_delta: float) -> void:
 func physics_update(delta: float) -> void:
 	var wasd_vector: Vector2 = Input.get_vector("a", "d", "w", "s")
 	if wasd_vector == Vector2.ZERO:
-		player.velocity.x = move_toward(player.velocity.x, 0, speed)
-		player.velocity.z = move_toward(player.velocity.z, 0, speed)
+		player.velocity.x = move_toward(player.velocity.x, 0, player.walk_speed)
+		player.velocity.z = move_toward(player.velocity.z, 0, player.walk_speed)
 		emit_signal("player_movement_state_transition", "IdleState")
 	elif Input.is_action_pressed("lshift"):
 		var direction: Vector3 = (camera_pivot.basis * Vector3(wasd_vector.x, 0, wasd_vector.y))
 		direction.y = 0
 		direction = direction.normalized()
 		
-		player.velocity.x = direction.x * speed
-		player.velocity.z = direction.z * speed
+		player.velocity.x = direction.x * player.running_speed
+		player.velocity.z = direction.z * player.running_speed
 		player.rotation.y = lerp_angle(player.rotation.y, atan2(direction.x, direction.z), rotation_speed * delta)
 	else:
 		emit_signal("player_movement_state_transition", "WalkingState")

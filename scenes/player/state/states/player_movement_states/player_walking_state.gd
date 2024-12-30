@@ -3,7 +3,6 @@ class_name PlayerWalkingState extends PlayerMovementState
 @onready var player: Player = $"../.."
 @onready var camera_pivot: Node3D = $"../../CameraPivot"
 
-var speed: float = 3.0
 var rotation_speed: float = PI * 3
 
 ## Called by the state machine in _input()
@@ -26,8 +25,8 @@ func physics_update(delta: float) -> void:
 		direction.y = 0
 		direction = direction.normalized()
 		
-		player.velocity.x = direction.x * speed
-		player.velocity.z = direction.z * speed
+		player.velocity.x = direction.x * player.walk_speed
+		player.velocity.z = direction.z * player.walk_speed
 		player.rotation.y = lerp_angle(player.rotation.y, atan2(direction.x, direction.z), rotation_speed * delta)
 	if Input.is_action_just_pressed("space"):
 		emit_signal("player_movement_state_transition", "JumpingState")
