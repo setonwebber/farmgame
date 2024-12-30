@@ -53,7 +53,8 @@ func planted():
 	crop_yield = max(1, rng.randi_range(crop.crop_yield - int(crop.crop_yield * 0.1), crop.crop_yield + int(crop.crop_yield * 0.1)))
 	growth_time = max(1, rng.randi_range(crop.growth_time - int(crop.growth_time * 0.1), crop.growth_time + int(crop.growth_time * 0.1)))
 
-	var interval = crop.growth_time / crop.stage_models.size()
+	# recalculate stage_times 
+	var interval = growth_time / crop.stage_models.size()
 	var calculated_stages: Array[int]
 
 	for i in range(crop.stage_models.size()):
@@ -61,7 +62,7 @@ func planted():
 	
 	stage_times = calculated_stages
 
-	print("Crop yield: ", crop_yield, "Crop growth: ", growth_time)
+	# print("Crop yield: ", crop_yield, " Crop growth: ", growth_time)
 
 	# Get a shuffled list of unique indices
 	var available_indices = Array(range(mesh_grid_size * mesh_grid_size))
@@ -96,5 +97,8 @@ func grow():
 						crop_instance.mesh = crop.stage_models[x]
 		else:
 			# Mark as grown and remove from active crops
+			for crop_instance in crop_instances:
+				pass
+				# need a "grown model" or something.
 			grown = true
 			CropGrowth.crops_placed.erase(self)
