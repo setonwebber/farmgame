@@ -15,6 +15,6 @@ render_type = "single"
 growth_time = 150
 water_usage = 0.0
 soil_required = Array[ExtResource("2_ypsle")]([])
-crop_yield = 3
+crop_yield = 10
 stage_models = Array[Mesh]([ExtResource("3_kjo7g"), ExtResource("4_y4ty0"), ExtResource("5_70ulr")])
 stage_times = Array[int]([0, 50, 100])

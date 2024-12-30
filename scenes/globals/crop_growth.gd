@@ -8,7 +8,7 @@ func _ready() -> void:
 	add_child(timer)
 	
 	# Configure the timer properties
-	timer.wait_time = 0.1
+	timer.wait_time = 0.5
 	timer.autostart = true
 	
 	# Connect the timer's timeout signal to the function

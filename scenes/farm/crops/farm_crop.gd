@@ -15,7 +15,7 @@ class_name FarmCrop
 ## The number of growth ticks required to fully grow the crop.
 @export var growth_time: int:
 	set(value):
-		growth_time = max(0, value)
+		growth_time = max(1, value)
 
 ## The amount of water in litres the crop consumes per growth tick.
 @export var water_usage: float:
