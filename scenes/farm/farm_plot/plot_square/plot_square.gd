@@ -32,12 +32,15 @@ func _ready() -> void:
 			
 			# Calculate the position based on the grid
 			mesh_instance.position = Vector3(
-				(x / float(mesh_grid_size)) - 0.5, 
+				(x / float(mesh_grid_size)) - 0.40, 
 				0, 
-				(z / float(mesh_grid_size)) - 0.5
+				(z / float(mesh_grid_size)) - 0.40
 			)
 			
 			mesh_instance.mesh = null  # Initially empty
+			mesh_instance.visibility_range_end = 15
+			mesh_instance.lod_bias = 0.001
+			
 			mesh_instances.append(mesh_instance)
 			add_child(mesh_instance)
 	
@@ -69,11 +72,14 @@ func planted():
 	available_indices.shuffle()
 
 	# Place crops randomly in unique spots
-	for i in range(crop_yield):
+	for i in range(min(crop_yield, mesh_grid_size * mesh_grid_size)):
 		var crop_instance = mesh_instances[available_indices[i]]
 		var crop_instance_scale = randf_range(0.08, 0.14)
+		
+		crop_instance.transform.basis = Basis(Vector3(0, 1, 0), randf_range(0, TAU))
 		crop_instance.mesh = crop.stage_models[0]
 		crop_instance.scale = Vector3(crop_instance_scale, crop_instance_scale, crop_instance_scale)
+		
 		crop_instances.append(crop_instance)
 		
 
