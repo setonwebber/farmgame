@@ -8,18 +8,18 @@ func handle_input(_event: InputEvent) -> void:
 
 ## Called by the state machine in _process()
 func update(_delta: float) -> void:
-	pass
+	crate.position = $"../..".global_position + $"../../Model".global_transform.basis.z + Vector3(0, 0.3, 0)
 
 ## Called by the state machine in _physics_process()
 func physics_update(_delta: float) -> void:
-	crate.position = $"../..".global_position + $"../../Model".global_transform.basis.z + Vector3(0, 0.3, 0)
-	if Input.is_action_just_pressed("rmb"):
+	if Input.is_action_just_released("lmb"):
+		crate.use($"../..")
+	elif Input.is_action_just_pressed("rmb"):
 		crate.drop($"../..")
 
 ## Called by the state machine upon entry into the state
 func enter() -> void:
 	crate = $"..".item
-	print(crate)
 	crate.reparent(self)
 	crate.freeze = true
 
