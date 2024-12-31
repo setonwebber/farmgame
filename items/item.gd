@@ -7,6 +7,7 @@ func pickup(_player: Player) -> void:
 	_player.ItemStateMachine._transition_to_next_state("ItemState")
 
 func drop(_player: Player) -> void:
+	_player.ItemStateMachine.item.reparent(get_tree().root.get_child(0))
 	_player.ItemStateMachine.item = null
 	_player.ItemStateMachine._transition_to_next_state("EmptyState")
 

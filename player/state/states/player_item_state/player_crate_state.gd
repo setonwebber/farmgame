@@ -12,7 +12,9 @@ func update(_delta: float) -> void:
 
 ## Called by the state machine in _physics_process()
 func physics_update(_delta: float) -> void:
-	crate.position = $"../..".global_position
+	crate.position = $"../..".global_position + $"../../Model".global_transform.basis.z + Vector3(0, 0.3, 0)
+	if Input.is_action_just_pressed("rmb"):
+		crate.drop($"../..")
 
 ## Called by the state machine upon entry into the state
 func enter() -> void:
@@ -24,3 +26,7 @@ func enter() -> void:
 ## Called by the state machine upon exiting the current state
 func exit() -> void:
 	crate == null
+	crate.freeze = false
+	
+	# Drop the crate in front of the player
+	crate.position = $"../../Model".global_position + $"../../Model".global_transform.basis.z * 2 + Vector3(0, 0.3, 0)
