@@ -1,6 +1,9 @@
-class_name PlayerCrateState extends PlayerItemState
+class_name PlayerCropState extends PlayerState
 
-var crate: Crate
+var crop: CropSeed
+
+## Emitted by the state when it wishes to transition to another state
+signal player_crop_state_transition(next_state_path: String)
 
 ## Called by the state machine in _input()
 func handle_input(_event: InputEvent) -> void:
@@ -12,15 +15,13 @@ func update(_delta: float) -> void:
 
 ## Called by the state machine in _physics_process()
 func physics_update(_delta: float) -> void:
-	crate.position = $"../..".global_position
+	pass
 
 ## Called by the state machine upon entry into the state
 func enter() -> void:
-	crate = $"..".item
-	print(crate)
-	crate.reparent(self)
-	crate.freeze = true
+	crop == $"..".item
+	reparent(self)
 
 ## Called by the state machine upon exiting the current state
 func exit() -> void:
-	crate == null
+	crop == null

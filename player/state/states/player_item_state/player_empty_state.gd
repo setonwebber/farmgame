@@ -18,7 +18,7 @@ func physics_update(_delta: float) -> void:
 		if player.velocity.length() != 0:
 			nearby_items.sort_custom(sort_items_ascending)
 		if Input.is_action_just_pressed("lmb"):
-			print("click")
+			nearby_items[0].pickup($"../..") # give the pickup value the player scene
 
 ## Called by the state machine upon entry into the state
 func enter() -> void:

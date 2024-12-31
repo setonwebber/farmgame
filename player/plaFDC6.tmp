@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cqe3bliijkea7"]
+[gd_scene load_steps=15 format=3 uid="uid://cqe3bliijkea7"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="3_68ucg"]
 [ext_resource type="Script" path="res://player/state/state_machines/player_movement_state_machine.gd" id="3_n77sq"]
@@ -12,7 +12,6 @@
 [ext_resource type="Script" path="res://player/state/state_machines/player_item_state_machine.gd" id="10_dlipq"]
 [ext_resource type="Script" path="res://player/state/states/player_item_state/player_empty_state.gd" id="11_htkj4"]
 [ext_resource type="Script" path="res://player/state/states/player_item_state/player_crate_state.gd" id="12_yttpr"]
-[ext_resource type="Script" path="res://player/state/states/player_item_state/player_crop_state.gd" id="13_4esmw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ncitn"]
 radius = 0.3
@@ -80,9 +79,6 @@ script = ExtResource("11_htkj4")
 
 [node name="CrateState" type="Node" parent="ItemStateMachine"]
 script = ExtResource("12_yttpr")
-
-[node name="CropState" type="Node" parent="ItemStateMachine"]
-script = ExtResource("13_4esmw")
 
 [node name="InteractionStateMachine" type="Node" parent="."]
 

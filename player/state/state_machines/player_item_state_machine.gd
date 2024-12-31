@@ -3,6 +3,8 @@ class_name PlayerItemStateMachine extends Node
 # The initial movement state will always be the idle state
 @export var state: PlayerItemState
 
+var item: Item
+
 func _ready() -> void:
 	for state_node: PlayerItemState in find_children("*", "PlayerItemState"):
 		state_node.player_item_state_transition.connect(_transition_to_next_state)

@@ -28,7 +28,6 @@ func _ready() -> void:
 	for x in range(mesh_grid_size):
 		for z in range(mesh_grid_size):
 			var mesh_instance = MeshInstance3D.new()
-			var initial_stage_scale = randf_range(0.08, 0.14)
 			
 			# Calculate the position based on the grid
 			mesh_instance.position = Vector3(
@@ -38,8 +37,8 @@ func _ready() -> void:
 			)
 			
 			mesh_instance.mesh = null  # Initially empty
-			mesh_instance.visibility_range_end = 15
-			mesh_instance.lod_bias = 0.001
+			mesh_instance.visibility_range_end = 15 # visibility range of crops
+			mesh_instance.lod_bias = 0.001 # how fast the LOD kicks in
 			
 			mesh_instances.append(mesh_instance)
 			add_child(mesh_instance)
@@ -87,6 +86,9 @@ func harvested():
 	for crop_instance in crop_instances:
 		crop_instance.mesh == null
 	crop == null
+	crop_yield == null
+	growth_time == null
+	stage_times == null
 	crop_instances.clear()
 
 func grow():
