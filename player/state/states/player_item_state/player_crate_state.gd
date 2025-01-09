@@ -1,5 +1,7 @@
 class_name PlayerCrateState extends PlayerItemState
 
+@onready var player: Player = $"../.."
+@onready var model: Node3D = $"../../Model"
 var crate: Crate
 
 ## Called by the state machine in _input()
@@ -8,10 +10,12 @@ func handle_input(_event: InputEvent) -> void:
 
 ## Called by the state machine in _process()
 func update(_delta: float) -> void:
-	crate.position = $"../..".global_position + $"../../Model".global_transform.basis.z + Vector3(0, 0.3, 0)
+	pass
 
 ## Called by the state machine in _physics_process()
 func physics_update(_delta: float) -> void:
+	crate.global_position = player.global_position + player.global_basis.z * 0.4 + Vector3(0, 0.3, 0)
+	crate.global_basis = player.global_basis
 	if Input.is_action_just_released("lmb"):
 		crate.use($"../..")
 	elif Input.is_action_just_pressed("rmb"):
