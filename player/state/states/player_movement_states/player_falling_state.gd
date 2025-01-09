@@ -1,20 +1,17 @@
-class_name PlayerJumpingState extends PlayerMovementState
+class_name PlayerFallingState extends PlayerMovementState
 
 @onready var player: Player = $"../.."
 
-var jump_velocity: float = 3.0
-
 ## Called by the state machine in _input()
-func handle_input(_event: InputEvent) -> void:
+func handle_input(event: InputEvent) -> void:
 	pass
 
 ## Called by the state machine in _process()
-func update(_delta: float) -> void:
+func update(delta: float) -> void:
 	pass
 
 ## Called by the state machine in _physics_process()
 func physics_update(delta: float) -> void:
-	player.move_and_slide()
 	if player.is_on_floor():
 		var wasd_vector: Vector2 = Input.get_vector("a", "d", "w", "s")
 		if wasd_vector == Vector2.ZERO:
@@ -23,12 +20,11 @@ func physics_update(delta: float) -> void:
 			emit_signal("player_movement_state_transition", "RunningState")
 		else:
 			emit_signal("player_movement_state_transition", "WalkingState")
-	elif player.velocity.y < 0:
-		emit_signal("player_movement_state_transition", "FallingState")
+	player.move_and_slide()
 
 ## Called by the state machine upon entry into the state
 func enter() -> void:
-	player.velocity.y = jump_velocity
+	pass
 
 ## Called by the state machine upon exiting the current state
 func exit() -> void:

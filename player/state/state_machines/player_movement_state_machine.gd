@@ -2,6 +2,7 @@ class_name PlayerMovementStateMachine extends Node
 
 # The initial movement state will always be the idle state
 @export var state: PlayerMovementState
+@onready var player: Player = $".."
 
 func _ready() -> void:
 	for state_node: PlayerMovementState in find_children("*", "PlayerMovementState"):
@@ -17,11 +18,12 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	state.update(delta)
+	print(state)
 
 
 func _physics_process(delta: float) -> void:
+	player.velocity = player.velocity + player.get_gravity() * delta
 	state.physics_update(delta)
-	# print(state)
 
 
 func _transition_to_next_state(target_state_path: String) -> void:
