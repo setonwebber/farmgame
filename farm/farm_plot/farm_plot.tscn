@@ -12,6 +12,7 @@ plot_width = 10
 plot_height = 10
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_mask = 2
 script = ExtResource("2_4puae")
 
 [node name="CollisionBox" type="CollisionShape3D" parent="Area3D"]

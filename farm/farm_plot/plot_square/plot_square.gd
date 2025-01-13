@@ -84,11 +84,8 @@ func planted():
 
 func harvested():
 	for crop_instance in crop_instances:
-		crop_instance.mesh == null
-	crop == null
-	crop_yield == null
-	growth_time == null
-	stage_times == null
+		crop_instance.mesh = null
+	crop = null
 	crop_instances.clear()
 
 func grow():

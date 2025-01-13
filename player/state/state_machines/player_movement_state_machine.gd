@@ -11,20 +11,15 @@ func _ready() -> void:
 	await owner.ready
 	state.enter()
 
-
 func _unhandled_input(event: InputEvent) -> void:
 	state.handle_input(event)
 
-
 func _process(delta: float) -> void:
 	state.update(delta)
-	print(state)
-
 
 func _physics_process(delta: float) -> void:
 	player.velocity = player.velocity + player.get_gravity() * delta
 	state.physics_update(delta)
-
 
 func _transition_to_next_state(target_state_path: String) -> void:
 	if not has_node(target_state_path):

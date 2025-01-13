@@ -9,8 +9,6 @@ class_name FarmCrop
 @export var name: String
 ## The display description of a crop.
 @export var description: String
-## The render type of the crop. "single" or "group"
-@export var render_type: String
 
 ## The number of growth ticks required to fully grow the crop.
 @export var growth_time: int:
